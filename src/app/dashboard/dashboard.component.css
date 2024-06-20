@@ -1,37 +1,65 @@
+/* Allgemeine Container-Styling */
 .main-container {
   display: flex;
-  flex-wrap: wrap; /* Ermöglicht das Umfließen auf mobilen Geräten */
-  padding: 10px; /* Fügt Abstand zum Rand hinzu */
-  box-sizing: border-box; /* Stellt sicher, dass Padding im Gesamtbreitenwert enthalten ist */
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; /* Fügt mehr Abstand zwischen den Elementen hinzu */
+  padding: 40px; /* Erhöht den innenliegenden Abstand */
+  background-color: #f8f9fa; /* Helle Hintergrundfarbe für den Container */
+  border-radius: 8px; /* Abgerundete Ecken für den Container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leichte Schatten für Tiefenwirkung */
+  margin: 20px; /* Außenabstand für mehr Platz um den Container */
 }
 
-.container_orders {
-  flex: 2; /* Nimmt 2/3 der Seite ein */
-  padding: 5px; /* Fügt inneren Abstand hinzu */
-  box-sizing: border-box;
+/* Überschriften-Styling */
+.main-container h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #333; /* Dunklere Farbe für die Überschriften */
+  border-bottom: 2px solid black; /* Linie unter der Überschrift */
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
 }
 
-.container_warranty {
-  flex: 1; /* Nimmt 1/3 der Seite ein */
-  padding: 10px; /* Fügt inneren Abstand hinzu */
-  box-sizing: border-box;
-  border-radius: 15px;
-  background-color: rgb(233, 233, 233);
-  margin-top: 10px; /* Abstand nach oben */
+/* Box-Styling */
+app-box, app-box-new-project, app-container-box {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 30px; /* Erhöhter Abstand nach unten */
+  background-color: #ffffff; /* Weiße Hintergrundfarbe für Boxen */
+  padding: 20px; /* Innenabstand für Boxen */
+  border-radius: 8px; /* Abgerundete Ecken für Boxen */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Schatten für Boxen */
+  transition: transform 0.2s, box-shadow 0.2s; /* Übergangseffekte für Hover-Zustand */
 }
 
+app-box:hover, app-box-new-project:hover, app-container-box:hover {
+  transform: translateY(-5px); /* Leichtes Anheben bei Hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stärkere Schatten bei Hover */
+}
+
+/* Header-Styling */
+#orders_header, #warranty_header {
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #555; /* Farbe für Header */
+}
+
+/* Responsive Design für mobile Geräte */
 @media (max-width: 768px) {
-  .container_orders, .container_warranty {
-    flex: 1 1 100%; /* Nimmt 100% der Breite auf mobilen Geräten */
-    margin-top: 10px; /* Fügt Abstand nach oben für mobile Geräte hinzu */
+  .main-container {
+    padding: 20px; /* Reduziertes Padding für mobile Geräte */
   }
-}
 
-#warranty_header {
-  color: seagreen;
-  margin-left: 15px;
-}
-#orders_header{
-  color: rgb(202, 2, 2);
-  margin-left: 15px;
+  .main-container h2 {
+    font-size: 1.2em; /* Kleinere Schriftgröße für Überschriften auf mobilen Geräten */
+  }
+
+  app-box, app-box-new-project, app-container-box {
+    padding: 15px; /* Reduziertes Padding für Boxen auf mobilen Geräten */
+  }
 }

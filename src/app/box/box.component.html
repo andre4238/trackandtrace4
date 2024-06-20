@@ -1,9 +1,19 @@
-<div *ngFor="let task of tasks">
-  <div class="box-container card"> <!-- (click)="openDetail(task.gid)" -->
-    <div class="card-body d-flex align-items-center">
-      <h1 class="card-title flex-grow-1">{{ task.name }} <br><br>(Status: {{ task.status }}/5)</h1>
+<table class="table table-responsive">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Status</th>
+    <th>Status-Badge</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let task of tasks">
+    <td>{{ task.name }}</td>
+    <td>{{ task.status }}/5</td>
+    <td>
       <span [ngClass]="getStatusClass(task.status)" class="badge">{{ getStatusText(task.status) }}</span>
-    </div>
-  </div>
-</div>
+    </td>
+  </tr>
+  </tbody>
+</table>
 <ng-template #detailContainer></ng-template>

@@ -1,29 +1,45 @@
-.box-container {
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: none; /* Entferne den Standardrahmen */
-    margin: 10px;
-    padding-top: 2px;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.box-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .table th, .table td {
+    font-size: 12px;
+    padding: 6px;
   }
-  
-  .card-body {
-    display: flex;
-    align-items: center;
-  }
-  
-  .card-title {
-    font-size: 14px;
-    font-weight: bold;
-    color: #333; /* Dunkle Schriftfarbe für bessere Lesbarkeit */
-    margin: 0;
-    flex-grow: 1; /* Lässt das Element wachsen, um den verfügbaren Platz zu füllen */
-  }
-  
+
   .box-image {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-left: 15px;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
   }
-  
+}

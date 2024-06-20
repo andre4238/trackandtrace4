@@ -21,6 +21,7 @@ import { BoxDetailComponent } from './box-detail/box-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { OrderboxComponent } from './orderbox/orderbox.component';
 import { LoginheaderComponent } from './loginheader/loginheader.component';
+import { ContainerBoxComponent } from './container-box/container-box.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LoginheaderComponent } from './loginheader/loginheader.component';
     FooterComponent,
     BoxDetailComponent,
     OrderboxComponent,
-    LoginheaderComponent
+    LoginheaderComponent,
+    ContainerBoxComponent
   ],
   imports: [
     BrowserModule,
