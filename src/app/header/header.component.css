@@ -1,4 +1,9 @@
-/* Stile für den normalen Zustand */
+.navbar {
+  background-color: #000000; /* Helle Hintergrundfarbe für die Navbar */
+  padding: 10px 20px;
+  border-bottom: 1px solid;
+}
+
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -9,8 +14,27 @@
   margin-left: auto;
 }
 
+/* Fixieren des Headers nur auf Desktops */
+@media (min-width: 769px) {
+  .navbar.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+  }
+
+  /* Platzhalter, um den Inhalt unter der fixierten Navbar nicht zu verdecken */
+  body {
+    padding-top: 70px; /* Höhe der Navbar */
+  }
+}
+
+/* Stile für mobile Geräte */
 @media (max-width: 768px) {
-  /* Stile für mobile Geräte */
+  .navbar {
+    position: relative; /* Navbar bleibt relativ positioniert auf mobilen Geräten */
+  }
+
   .navbar-brand {
     order: 1;
     width: auto;
@@ -27,5 +51,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+  }
+
+  /* Entfernt das zusätzliche Padding des Bodys auf mobilen Geräten */
+  body {
+    padding-top: 0;
   }
 }

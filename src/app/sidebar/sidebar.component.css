@@ -1,0 +1,29 @@
+.sidebar {
+  position: fixed;
+  top: 90px; /* Höhe des Headers */
+  left: 0;
+  width: 200px; /* Breite der Sidebar */
+  height: calc(100% - 70px); /* Höhe der Sidebar, angepasst an die Höhe des Headers */
+  background-color: #000000; /* Hintergrundfarbe der Sidebar */
+  color: #fff;
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+  color: #fff;
+  padding: 10px 15px;
+  display: block;
+}
+
+.nav-link:hover {
+  background-color: #495057;
+  text-decoration: none;
+}
+
+/* Sidebar nur auf Desktops anzeigen */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}

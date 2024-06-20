@@ -23,6 +23,7 @@ import { OrderboxComponent } from './orderbox/orderbox.component';
 import { LoginheaderComponent } from './loginheader/loginheader.component';
 import { ContainerBoxComponent } from './container-box/container-box.component';
 import { DownloadsComponent } from './downloads/downloads.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
@@ -38,7 +39,8 @@ import { DownloadsComponent } from './downloads/downloads.component';
     OrderboxComponent,
     LoginheaderComponent,
     ContainerBoxComponent,
-    DownloadsComponent
+    DownloadsComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

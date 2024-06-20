@@ -1,5 +1,6 @@
 /* Allgemeine Container-Styling */
 .main-container {
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,6 +10,7 @@
   border-radius: 8px; /* Abgerundete Ecken für den Container */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leichte Schatten für Tiefenwirkung */
   margin: 20px; /* Außenabstand für mehr Platz um den Container */
+  margin-top: 80px;
 }
 
 /* Einzelne Container-Styling */
@@ -23,7 +25,7 @@
 }
 
 .container:hover {
-  transform: translateY(-5px); /* Leichtes Anheben bei Hover */
+
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stärkere Schatten bei Hover */
 }
 
@@ -33,7 +35,7 @@
   margin-bottom: 20px;
   font-size: 1.5em;
   color: #333; /* Dunklere Farbe für die Überschriften */
-  border-bottom: 2px solid #333; /* Linie unter der Überschrift */
+  /*border-bottom: 2px solid #333; /* Linie unter der Überschrift */
   padding-bottom: 10px;
   width: 100%;
   text-align: center;
@@ -42,6 +44,7 @@
 @media (max-width: 768px) {
   .main-container {
     padding: 20px; /* Reduziertes Padding für mobile Geräte */
+    margin-top: 20px;
   }
 
   .container {
