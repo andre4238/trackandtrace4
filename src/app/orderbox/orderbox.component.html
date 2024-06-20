@@ -1,0 +1,10 @@
+<div *ngFor="let task of tasks">
+    <div class="box-container card"> <!-- (click)="openDetail(task.gid) -->
+      <div class="card-body d-flex align-items-center">
+        <h1 class="card-title flex-grow-1">{{ task.name }} <br><br>(Status: {{ task.status }}/5) </h1>
+        <img [src]="'/assets/' + task.status + '.png'" alt="Status Image" class="img-fluid box-image" style="min-width: 48px;min-height: 48px;">
+      </div>
+    </div>
+  </div>
+  <ng-template #detailContainer></ng-template>
+  

@@ -1,0 +1,32 @@
+/* Stile für den normalen Zustand */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+  }
+  
+  #logout-dropdown {
+    margin-left: auto;
+  }
+  
+  @media (max-width: 768px) {
+    /* Stile für mobile Geräte */
+    .navbar-brand {
+      order: 1;
+      width: auto;
+    }
+  
+    .dropdown {
+      order: 2;
+      width: auto;
+      margin-left: auto;
+    }
+  
+    .container-fluid {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  

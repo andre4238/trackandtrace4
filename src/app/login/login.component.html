@@ -1,0 +1,45 @@
+<app-loginheader></app-loginheader>
+
+<div class="login-container container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title text-center"><img style="text-align: center;" src="assets/LE1.png"></h2>
+          
+
+          <!-- Fehlermeldung anzeigen, wenn vorhanden -->
+          <div *ngIf="errorMessage" class="alert alert-danger">
+            {{ errorMessage }}
+          </div>
+
+          <form [formGroup]="loginForm" (ngSubmit)="loginWithEmail()">
+            <!-- E-Mail-Eingabefeld -->
+            <div class="form-group">
+              <label for="email">E-Mail:</label>
+              <input type="email" id="email" formControlName="email" class="form-control" placeholder="">
+              <!-- Fehlermeldungen für das E-Mail-Feld anzeigen -->
+              <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="text-danger">
+                <small *ngIf="email?.errors?.['required']">E-Mail required.</small>
+                <small *ngIf="email?.errors?.['email']">incorrect Email.</small>
+              </div>
+            </div>
+
+            <!-- Passwort-Eingabefeld -->
+            <div class="form-group mt-3">
+              <label for="password">Password:</label>
+              <input type="password" id="password" formControlName="password" class="form-control" placeholder="">
+              <!-- Fehlermeldungen für das Passwort-Feld anzeigen -->
+              <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="text-danger">
+                <small *ngIf="password?.errors?.['required']">please enter password.</small>
+              </div>
+            </div>
+
+            <!-- Anmeldebutton -->
+            <button type="submit" class="btn btn-primary btn-block mt-4">login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

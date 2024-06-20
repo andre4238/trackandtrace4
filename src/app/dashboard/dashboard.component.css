@@ -1,0 +1,37 @@
+.main-container {
+  display: flex;
+  flex-wrap: wrap; /* Ermöglicht das Umfließen auf mobilen Geräten */
+  padding: 10px; /* Fügt Abstand zum Rand hinzu */
+  box-sizing: border-box; /* Stellt sicher, dass Padding im Gesamtbreitenwert enthalten ist */
+}
+
+.container_orders {
+  flex: 2; /* Nimmt 2/3 der Seite ein */
+  padding: 5px; /* Fügt inneren Abstand hinzu */
+  box-sizing: border-box;
+}
+
+.container_warranty {
+  flex: 1; /* Nimmt 1/3 der Seite ein */
+  padding: 10px; /* Fügt inneren Abstand hinzu */
+  box-sizing: border-box;
+  border-radius: 15px;
+  background-color: rgb(233, 233, 233);
+  margin-top: 10px; /* Abstand nach oben */
+}
+
+@media (max-width: 768px) {
+  .container_orders, .container_warranty {
+    flex: 1 1 100%; /* Nimmt 100% der Breite auf mobilen Geräten */
+    margin-top: 10px; /* Fügt Abstand nach oben für mobile Geräte hinzu */
+  }
+}
+
+#warranty_header {
+  color: seagreen;
+  margin-left: 15px;
+}
+#orders_header{
+  color: rgb(202, 2, 2);
+  margin-left: 15px;
+}
