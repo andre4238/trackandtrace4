@@ -1,0 +1,87 @@
+/* Allgemeine Styling für den Container */
+.container {
+  margin-top: 50px;
+  background-color: #f9f9f9; /* Helle Hintergrundfarbe für den Container */
+  padding: 40px; /* Erhöhtes Padding für mehr Platz */
+  border-radius: 8px; /* Abgerundete Ecken für den Container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leichte Schatten für Tiefenwirkung */
+  min-height: 400px; /* Mindesthöhe für den Container */
+}
+
+/* Styling für die Überschrift */
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #007bff; /* Linie unter der Überschrift */
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+/* Styling für die Tabelle */
+.table {
+  margin-top: 20px;
+  background-color: #ffffff;
+  border-collapse: separate; /* Verhindert, dass die Ränder der Zellen zusammenfallen */
+  border-spacing: 0; /* Setzt den Abstand zwischen den Zellen auf null */
+  width: 100%;
+}
+
+/* Styling für die Tabellenüberschriften */
+.table th {
+  background-color: #333; /* Dunklere Farbe für die Tabellenüberschriften */
+  color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  font-weight: 500;
+  border-top: none;
+}
+
+/* Styling für die Tabellenzellen */
+.table td {
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle; /* Zentriert den Text vertikal */
+  border-top: 1px solid #dee2e6;
+}
+
+/* Styling für die Schaltflächen */
+.btn-primary {
+  background-color: #28a745; /* Seagreen durch Bootstrap grün ersetzt */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover-Effekt für die Schaltflächen */
+.btn-primary:hover {
+  background-color: #218838; /* Etwas dunkleres Grün für Hover */
+  transform: translateY(-2px);
+}
+
+/* Anpassungen für mobile Geräte */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px; /* Reduziertes Padding für mobile Geräte */
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Kleinere Schriftgröße für Überschriften auf mobilen Geräten */
+  }
+
+  .table th, .table td {
+    padding: 8px; /* Reduziertes Padding für Zellen auf mobilen Geräten */
+    font-size: 14px; /* Kleinere Schriftgröße für Zellen auf mobilen Geräten */
+  }
+
+  .btn-primary {
+    padding: 8px 16px; /* Reduziertes Padding für Schaltflächen auf mobilen Geräten */
+    font-size: 13px; /* Kleinere Schriftgröße für Schaltflächen auf mobilen Geräten */
+  }
+}

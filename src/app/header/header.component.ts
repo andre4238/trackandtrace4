@@ -13,8 +13,8 @@ export class HeaderComponent implements OnInit {
   userEmail: string | null = null;
 
   constructor(
-    private authService: AuthService, 
-    private router: Router, 
+    private authService: AuthService,
+    private router: Router,
     private afAuth: AngularFireAuth // Injektion von AngularFireAuth
   ) {}
 
@@ -37,5 +37,9 @@ export class HeaderComponent implements OnInit {
       .catch((error) => {
         console.error('HeaderComponent: Logout error:', error);
       });
+  }
+
+  downloads(){
+    this.router.navigate(['/downloads']);
   }
 }

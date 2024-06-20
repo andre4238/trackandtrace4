@@ -22,6 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { OrderboxComponent } from './orderbox/orderbox.component';
 import { LoginheaderComponent } from './loginheader/loginheader.component';
 import { ContainerBoxComponent } from './container-box/container-box.component';
+import { DownloadsComponent } from './downloads/downloads.component';
+
+
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import { ContainerBoxComponent } from './container-box/container-box.component';
     BoxDetailComponent,
     OrderboxComponent,
     LoginheaderComponent,
-    ContainerBoxComponent
+    ContainerBoxComponent,
+    DownloadsComponent
   ],
   imports: [
     BrowserModule,
