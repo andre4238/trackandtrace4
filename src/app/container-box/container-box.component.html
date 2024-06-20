@@ -1,0 +1,18 @@
+<table class="table table-responsive">
+  <thead>
+  <tr>
+    <th>Container Orders</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let task of tasks">
+    <td>{{ task.name }}</td>
+    <td>
+      <span [ngClass]="getStatusClass(task.status)" class="badge">{{ getStatusText(task.status) }}</span>
+      ({{ task.status }}/5)
+    </td>
+  </tr>
+  </tbody>
+</table>
+<ng-template #detailContainer></ng-template>

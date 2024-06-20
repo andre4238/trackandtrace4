@@ -1,13 +1,17 @@
 <app-header></app-header>
 
 <div class="main-container">
+  <div class="container">
+    <h2 id="orders_header">Your Orders</h2>
+    <app-box-new-project></app-box-new-project>
+  </div>
 
+  <div class="container">
+    <h2 id="warranty_header">Warranty & Container status</h2>
+    <app-box></app-box>
+  </div>
 
-  <h2 id="orders_header">Your Orders</h2>
-  <app-box-new-project></app-box-new-project>
-
-  <h2 id="warranty_header">Warranty & Container status</h2>
-  <app-box></app-box>
-
-  <app-container-box></app-container-box>
+  <div class="container">
+    <app-container-box></app-container-box>
+  </div>
 </div>

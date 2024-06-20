@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px; /* Fügt mehr Abstand zwischen den Elementen hinzu */
+  gap: 30px; /* Fügt mehr Abstand zwischen den Containern hinzu */
   padding: 40px; /* Erhöht den innenliegenden Abstand */
   background-color: #f8f9fa; /* Helle Hintergrundfarbe für den Container */
   border-radius: 8px; /* Abgerundete Ecken für den Container */
@@ -11,23 +11,10 @@
   margin: 20px; /* Außenabstand für mehr Platz um den Container */
 }
 
-/* Überschriften-Styling */
-.main-container h2 {
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-size: 1.5em;
-  color: #333; /* Dunklere Farbe für die Überschriften */
-  border-bottom: 2px solid black; /* Linie unter der Überschrift */
-  padding-bottom: 10px;
+/* Einzelne Container-Styling */
+.container {
   width: 100%;
-  text-align: center;
-}
-
-/* Box-Styling */
-app-box, app-box-new-project, app-container-box {
-  width: 100%;
-  max-width: 800px;
-  margin-bottom: 30px; /* Erhöhter Abstand nach unten */
+  max-width: 800px; /* Begrenzte maximale Breite für bessere Lesbarkeit */
   background-color: #ffffff; /* Weiße Hintergrundfarbe für Boxen */
   padding: 20px; /* Innenabstand für Boxen */
   border-radius: 8px; /* Abgerundete Ecken für Boxen */
@@ -35,31 +22,33 @@ app-box, app-box-new-project, app-container-box {
   transition: transform 0.2s, box-shadow 0.2s; /* Übergangseffekte für Hover-Zustand */
 }
 
-app-box:hover, app-box-new-project:hover, app-container-box:hover {
+.container:hover {
   transform: translateY(-5px); /* Leichtes Anheben bei Hover */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stärkere Schatten bei Hover */
 }
 
-/* Header-Styling */
-#orders_header, #warranty_header {
-  text-align: center;
+/* Überschriften-Styling */
+.container h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #333; /* Dunklere Farbe für die Überschriften */
+  border-bottom: 2px solid #333; /* Linie unter der Überschrift */
+  padding-bottom: 10px;
   width: 100%;
-  font-weight: bold;
-  font-size: 1.2em;
-  color: #555; /* Farbe für Header */
+  text-align: center;
 }
 
-/* Responsive Design für mobile Geräte */
 @media (max-width: 768px) {
   .main-container {
     padding: 20px; /* Reduziertes Padding für mobile Geräte */
   }
 
-  .main-container h2 {
-    font-size: 1.2em; /* Kleinere Schriftgröße für Überschriften auf mobilen Geräten */
+  .container {
+    padding: 15px; /* Reduziertes Padding für Boxen auf mobilen Geräten */
   }
 
-  app-box, app-box-new-project, app-container-box {
-    padding: 15px; /* Reduziertes Padding für Boxen auf mobilen Geräten */
+  .container h2 {
+    font-size: 1.2em; /* Kleinere Schriftgröße für Überschriften auf mobilen Geräten */
   }
 }
