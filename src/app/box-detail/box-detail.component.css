@@ -1,64 +1,88 @@
-.box-detail {
-    position: fixed;
-    top: 0;
+/* Styles for box-detail component */
+.box-detail-container {
+  position: fixed;
+  top: 0;
+  right: -400px; /* Startposition außerhalb des Bildschirms */
+  width: 400px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
+  transition: right 0.3s ease, top 0.3s ease; /* Transition für den Sliden-Effekt */
+  z-index: 1050;
+  overflow-y: auto; /* Ermöglicht das Scrollen innerhalb der Komponente */
+  display: flex;
+  flex-direction: column;
+}
+
+.box-detail-container.open {
+  right: 0; /* Endposition im sichtbaren Bereich */
+}
+
+.headerbox {
+  position: relative;
+  background-color: #f2f2f2;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1060; /* Ensure header is above other content */
+}
+
+.headerbox h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.close-btn {
+  background-color: transparent;
+  border: none;
+  color: #dc3545;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #c82333;
+}
+
+.box-detail-content {
+  padding: 20px;
+  flex-grow: 1;
+  margin-top: 60px; /* Adjust for header height */
+}
+
+.box-detail-content p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.box-detail-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .box-detail-container {
+    top: 100%; /* Startposition außerhalb des Bildschirms */
     right: 0;
-    width: 50%;
-    height: 100%;
-    background: white;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-    transform: translateX(100%);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
+    width: 100%;
+    height: 100%; /* Passt die Höhe automatisch an */
+    transition: top 0.3s ease; /* Transition für den Sliden-Effekt */
   }
-  
-  .box-detail.show {
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
+
+  .box-detail-container.open {
+    top: 0; /* Endposition im sichtbaren Bereich */
   }
-  
-  .box-detail.hide {
-    transform: translateX(100%);
-    opacity: 0;
-    visibility: hidden;
+
+  .no-scroll {
+    overflow: hidden; /* Verhindert das Scrollen der Hauptseite */
   }
-  
-  @media (max-width: 768px) {
-    .box-detail {
-      width: 100%;
-      height: 92%;
-      top: auto;
-      bottom: 0;
-      transform: translateY(100%);
-      transition: transform 0.5s ease, opacity 0.5s ease;
-    }
-  
-    .box-detail.show {
-      transform: translateY(0);
-      opacity: 1;
-      visibility: visible;
-    }
-  
-    .box-detail.hide {
-      transform: translateY(100%);
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
-  
-  .box-detail-content {
-    padding: 20px;
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
+}

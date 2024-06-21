@@ -1,25 +1,43 @@
 <app-header></app-header>
+<app-sidebar></app-sidebar>
 
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <h2 class="text-center mb-4">Downloads</h2>
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th scope="col">Dateiname</th>
-          <th scope="col" class="text-center">Download</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let file of files">
-          <td>{{ file.name }}</td>
-          <td class="text-center">
-            <button (click)="downloadFile(file.url)" class="btn btn-primary">Download</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">Dateiname</th>
+            <th scope="col" class="text-center">Aktionen</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let file of files">
+            <td>{{ file.name }}</td>
+            <td class="text-center">
+              <button (click)="viewFile(file.url)" class="btn btn-secondary">View</button>
+              <button (click)="downloadFile(file.url)" class="btn btn-primary">Download</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<ng-template #viewFileModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="viewFileModalLabel">File Content</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <iframe [src]="fileContent" width="100%" height="500px"></iframe>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

@@ -22,7 +22,7 @@
 }
 
 /* Sidebar nur auf Desktops anzeigen */
-@media (max-width: 768px) {
+@media (max-width: 1324px) {
   .sidebar {
     display: none;
   }

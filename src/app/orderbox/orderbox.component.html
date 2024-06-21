@@ -7,7 +7,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let task of tasks">
+  <tr *ngFor="let task of tasks" [ngClass]="{'selected': selectedTask === task}" (click)="selectTask(task)">
     <td>{{ task.name }}</td>
     <td>{{ task.status }}/5</td>
     <td>
@@ -16,4 +16,6 @@
   </tr>
   </tbody>
 </table>
+
+<!-- Hier soll die box-detail Komponente angezeigt werden -->
 <ng-template #detailContainer></ng-template>

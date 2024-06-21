@@ -24,6 +24,8 @@ import { LoginheaderComponent } from './loginheader/loginheader.component';
 import { ContainerBoxComponent } from './container-box/container-box.component';
 import { DownloadsComponent } from './downloads/downloads.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SafePipe } from '../services/safe.pipe'; // Importieren Sie die Safe-Pipe
 
 
 
@@ -40,7 +42,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     LoginheaderComponent,
     ContainerBoxComponent,
     DownloadsComponent,
-    SidebarComponent
+    SidebarComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     provideClientHydration(),

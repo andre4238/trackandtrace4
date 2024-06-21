@@ -1,8 +1,11 @@
-<div class="box-detail" [ngClass]="{'show': isOpen, 'hide': !isOpen}">
-    <button class="close-button" (click)="close($event)">×</button>
-    <div class="box-detail-content">
-      <h1>{{ task?.name }} (Status: {{ task?.status }})</h1>
-      <p>Alle Informationen der Box</p>
-    </div>
+<div class="box-detail-container" [ngClass]="{'open': isOpen}">
+  <div class="headerbox">
+    <button (click)="close()" class="close-btn">&times;</button>
+    <h2>{{ task.name }}</h2>
+
   </div>
-  
+  <div class="box-detail-content">
+    <p>Status: {{ task.status }}/5</p>
+    <img [src]="'/assets/' + task.status + '.png'" alt="Status Image" class="box-image">
+  </div>
+</div>

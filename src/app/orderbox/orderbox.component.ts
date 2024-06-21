@@ -11,6 +11,7 @@ export class OrderboxComponent implements OnInit {
   @ViewChild('detailContainer', { read: ViewContainerRef }) detailContainer!: ViewContainerRef;
 
   tasks: any[] = [];
+  selectedTask: any = null;
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
@@ -32,20 +33,19 @@ export class OrderboxComponent implements OnInit {
     );
   }
 
-  /*openDetail(task: any) {
-    console.log('openDetail called for task', task);
+  selectTask(task: any) {
+    this.selectedTask = task;
+    this.showDetail(task);
+  }
+
+  showDetail(task: any) {
     this.detailContainer.clear(); // Clear any existing components
     const factory = this.componentFactoryResolver.resolveComponentFactory(BoxDetailComponent);
     const componentRef = this.detailContainer.createComponent(factory);
-
-    componentRef.instance.isOpen = true;
     componentRef.instance.task = task; // Set the task input for the detail component
+
     componentRef.instance.closeDetail.subscribe(() => {
-      console.log('closeDetail event received');
-      componentRef.instance.isOpen = false;
-      setTimeout(() => {
-        componentRef.destroy(); // Destroy the component on close
-      }, 500); // Wait for the animation to complete
+      componentRef.destroy(); // Destroy the component on close
     });
-  }*/
+  }
 }
