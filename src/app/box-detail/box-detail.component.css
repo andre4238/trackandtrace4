@@ -21,7 +21,7 @@
 .headerbox {
   position: relative;
   background-color: #f2f2f2;
-  padding: 10px 20px;
+  padding: 16px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -53,13 +53,12 @@
 .box-detail-content {
   padding: 20px;
   flex-grow: 1;
-  margin-top: 60px; /* Adjust for header height */
 }
 
 .box-detail-content p {
   font-size: 16px;
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .box-detail-content img {
@@ -67,6 +66,34 @@
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 auto 16px;
+}
+
+.subtasks h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.subtasks ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.subtasks ul li {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.subtasks ul li:hover {
+  background-color: #f8f8f8;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {

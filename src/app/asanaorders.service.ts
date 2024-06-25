@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Observable, of, forkJoin } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
-import { EMAIL_FILTERS } from '../services/filter.config'; // Annahme: Die Datei befindet sich im gleichen Verzeichnis
+import { EMAIL_FILTERS } from '../services/filter.config';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +47,17 @@ export class AsanaNewProjectService {
       }),
       catchError(error => {
         console.error(`Error fetching tasks from section with ID: ${sectionId}`, error);
+        return of([]);
+      })
+    );
+  }
+
+  getSubtasks(taskId: string): Observable<any[]> {
+    const url = `${this.apiUrl}/tasks/${taskId}/subtasks`;
+    return this.http.get<any>(url, { headers: this.headers }).pipe(
+      map(response => response.data),
+      catchError(error => {
+        console.error(`Error fetching subtasks for task with ID: ${taskId}`, error);
         return of([]);
       })
     );

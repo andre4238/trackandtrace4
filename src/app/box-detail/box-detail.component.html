@@ -2,10 +2,17 @@
   <div class="headerbox">
     <button (click)="close()" class="close-btn">&times;</button>
     <h2>{{ task.name }}</h2>
-
   </div>
   <div class="box-detail-content">
-    <p>Status: {{ task.status }}/5</p>
-    <img [src]="'/assets/' + task.status + '.png'" alt="Status Image" class="box-image">
+    <p class="status">Status: {{ task.status }}/5</p>
+    <img [src]="'/assets/' + task.status + '.png'" alt="Status Image" class="box-image" style="width: 96px; height: 96px">
+    <div class="subtasks">
+      <h3>Information:</h3>
+      <ul>
+        <li *ngFor="let subtask of subtasks">
+          {{ subtask.name }}
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
