@@ -30,7 +30,10 @@ export class BoxDetailComponent implements OnInit {
   loadSubtasks() {
     if (this.task && this.task.gid) {
       this.asanaService.getSubtasks(this.task.gid).subscribe(subtasks => {
-        this.subtasks = this.sortSubtasks(subtasks);
+        // Filter subtasks to include only those with TNT, FedEx, UPS, or DSV, case insensitive
+        this.subtasks = this.sortSubtasks(subtasks.filter(subtask =>
+          /TNT|FedEx|UPS|DSV/i.test(subtask.name)
+        ));
         this.checkTntSubtask();
       });
     }
@@ -61,8 +64,8 @@ export class BoxDetailComponent implements OnInit {
   sortSubtasks(subtasks: any[]): any[] {
     return subtasks.sort((a, b) => {
       const keywords = ['TNT', 'FedEx', 'UPS', 'DSV'];
-      const aIndex = keywords.findIndex(keyword => a.name.includes(keyword));
-      const bIndex = keywords.findIndex(keyword => b.name.includes(keyword));
+      const aIndex = keywords.findIndex(keyword => a.name.toLowerCase().includes(keyword.toLowerCase()));
+      const bIndex = keywords.findIndex(keyword => b.name.toLowerCase().includes(keyword.toLowerCase()));
 
       if (aIndex === -1 && bIndex === -1) {
         return 0; // Both a and b do not contain any keywords
@@ -77,13 +80,13 @@ export class BoxDetailComponent implements OnInit {
   }
 
   getSubtaskClass(subtaskName: string): string {
-    if (subtaskName.includes('TNT')) {
+    if (/TNT/i.test(subtaskName)) {
       return 'tnt';
-    } else if (subtaskName.includes('FedEx')) {
+    } else if (/FedEx/i.test(subtaskName)) {
       return 'fedex';
-    } else if (subtaskName.includes('UPS')) {
+    } else if (/UPS/i.test(subtaskName)) {
       return 'ups';
-    } else if (subtaskName.includes('DSV')) {
+    } else if (/DSV/i.test(subtaskName)) {
       return 'dsv';
     } else {
       return '';

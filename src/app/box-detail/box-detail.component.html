@@ -1,13 +1,13 @@
 <div class="box-detail-container" [class.open]="isOpen">
   <div class="headerbox">
-    <h2>Task Details</h2>
+    <h2>Order Details</h2>
     <button class="close-btn" (click)="close()">×</button>
   </div>
   <div class="box-detail-content">
     <p>{{ task.name }}</p>
 
     <div class="subtasks">
-      <h3>Subtasks</h3>
+      <h3>Tracking</h3>
       <ul>
         <li *ngFor="let subtask of subtasks" [class]="getSubtaskClass(subtask.name)">
           {{ subtask.name }}
@@ -15,7 +15,7 @@
       </ul>
     </div>
 
-    <div *ngIf="tntStatus">
+    <div *ngIf="tntStatus" class="tnt-status-container">
       <h3>TNT Tracking Status</h3>
       <p>{{ tntStatus }}</p>
     </div>

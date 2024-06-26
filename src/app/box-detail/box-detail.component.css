@@ -116,6 +116,28 @@
   color: white; /* Optionale Anpassung der Textfarbe für bessere Lesbarkeit */
 }
 
+/* Styles for TNT Tracking Status */
+.tnt-status-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tnt-status-container h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.tnt-status-container p {
+  font-size: 16px;
+  color: #666;
+  white-space: pre-wrap; /* Erlaubt Zeilenumbrüche und Beibehaltung der Formatierung */
+}
+
 @media (max-width: 768px) {
   .box-detail-container {
     top: 100%; /* Startposition außerhalb des Bildschirms */
