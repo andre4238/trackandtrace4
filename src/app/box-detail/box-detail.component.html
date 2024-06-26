@@ -9,10 +9,11 @@
     <div class="subtasks">
       <h3>Information:</h3>
       <ul>
-        <li *ngFor="let subtask of subtasks">
+        <li *ngFor="let subtask of subtasks" [ngClass]="getSubtaskClass(subtask.name)">
           {{ subtask.name }}
         </li>
       </ul>
     </div>
   </div>
 </div>
+

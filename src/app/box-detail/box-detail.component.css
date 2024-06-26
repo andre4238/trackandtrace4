@@ -96,6 +96,26 @@
   cursor: pointer;
 }
 
+.subtasks ul li.tnt {
+  background-color: #E94A0A;
+  color: white;
+}
+
+.subtasks ul li.fedex {
+  background-color: purple;
+  color: white; /* Optionale Anpassung der Textfarbe für bessere Lesbarkeit */
+}
+
+.subtasks ul li.ups {
+  background-color: brown;
+  color: white; /* Optionale Anpassung der Textfarbe für bessere Lesbarkeit */
+}
+
+.subtasks ul li.dsv {
+  background-color: darkblue;
+  color: white; /* Optionale Anpassung der Textfarbe für bessere Lesbarkeit */
+}
+
 @media (max-width: 768px) {
   .box-detail-container {
     top: 100%; /* Startposition außerhalb des Bildschirms */

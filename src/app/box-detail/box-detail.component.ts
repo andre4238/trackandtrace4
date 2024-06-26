@@ -25,8 +25,40 @@ export class BoxDetailComponent implements OnInit {
   loadSubtasks() {
     if (this.task && this.task.gid) {
       this.asanaService.getSubtasks(this.task.gid).subscribe(subtasks => {
-        this.subtasks = subtasks;
+        this.subtasks = this.sortSubtasks(subtasks);
       });
+    }
+  }
+
+  sortSubtasks(subtasks: any[]): any[] {
+    return subtasks.sort((a, b) => {
+      const keywords = ['TNT', 'FedEx', 'UPS', 'DSV'];
+      const aIndex = keywords.findIndex(keyword => a.name.includes(keyword));
+      const bIndex = keywords.findIndex(keyword => b.name.includes(keyword));
+
+      if (aIndex === -1 && bIndex === -1) {
+        return 0; // Both a and b do not contain any keywords
+      } else if (aIndex === -1) {
+        return 1; // a does not contain any keyword but b does
+      } else if (bIndex === -1) {
+        return -1; // b does not contain any keyword but a does
+      } else {
+        return aIndex - bIndex; // Both contain keywords, sort based on the order of keywords
+      }
+    });
+  }
+
+  getSubtaskClass(subtaskName: string): string {
+    if (subtaskName.includes('TNT')) {
+      return 'tnt';
+    } else if (subtaskName.includes('FedEx')) {
+      return 'fedex';
+    } else if (subtaskName.includes('UPS')) {
+      return 'ups';
+    } else if (subtaskName.includes('DSV')) {
+      return 'dsv';
+    } else {
+      return '';
     }
   }
 
