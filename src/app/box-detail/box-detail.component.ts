@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { AsanaNewProjectService } from '../asanaorders.service';
+import { TntTrackingService } from '../tnt-tracking.service';
 
 @Component({
   selector: 'app-box-detail',
@@ -11,8 +12,12 @@ export class BoxDetailComponent implements OnInit {
   @Output() closeDetail = new EventEmitter<void>();
   isOpen = false;
   subtasks: any[] = [];
+  tntStatus: string = '';
 
-  constructor(private asanaService: AsanaNewProjectService) {}
+  constructor(
+    private asanaService: AsanaNewProjectService,
+    private tntTrackingService: TntTrackingService
+  ) {}
 
   ngOnInit() {
     setTimeout(() => {
@@ -26,7 +31,30 @@ export class BoxDetailComponent implements OnInit {
     if (this.task && this.task.gid) {
       this.asanaService.getSubtasks(this.task.gid).subscribe(subtasks => {
         this.subtasks = this.sortSubtasks(subtasks);
+        this.checkTntSubtask();
       });
+    }
+  }
+
+  checkTntSubtask() {
+    for (let subtask of this.subtasks) {
+      const trackingNumber = this.tntTrackingService.extractTrackingNumber(subtask.name);
+      if (trackingNumber) {
+        console.log('Found tracking number:', trackingNumber);
+        this.tntTrackingService.getTrackingStatus(trackingNumber).subscribe(
+          status => {
+            console.log('TNT API response:', status);
+            this.tntStatus = JSON.stringify(status, null, 2);
+          },
+          error => {
+            console.error('TNT API error:', error);
+            this.tntStatus = `Error: ${error.message}`;
+          }
+        );
+        break; // Assuming only one TNT tracking subtask is needed
+      } else {
+        console.log('No tracking number found in subtask:', subtask.name);
+      }
     }
   }
 
