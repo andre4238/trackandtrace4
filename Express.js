@@ -1,8 +1,9 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
 
 const app = express();
-const port = 3000;
+const port = 3001; // Ändern Sie den Port zu einem anderen freien Port
 
 // FEDEX API Credentials (Produktionsschlüssel)
 const FEDEX_API_KEY = 'l751ecceb3e79a428cb837672fcaf91a1b';
@@ -10,6 +11,11 @@ const FEDEX_SECRET_KEY = 'ba249a1811f542b49ff785e631d28556';
 
 // Middleware to parse JSON
 app.use(express.json());
+
+// Enable CORS for all routes
+app.use(cors({
+  origin: 'http://localhost:4200' // Fügen Sie die URL Ihres Angular-Frontends hinzu
+}));
 
 // Function to get OAuth token
 const getOAuthToken = async () => {

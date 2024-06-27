@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { AsanaNewProjectService } from '../asanaorders.service';
 import { FedextrackingService } from '../fedextracking.service';
+import { TrackingService } from '../tracking.service';
 
 @Component({
   selector: 'app-box-detail',
@@ -18,7 +19,8 @@ export class BoxDetailComponent implements OnInit {
 
   constructor(
     private asanaService: AsanaNewProjectService,
-    private fedextrackingService: FedextrackingService
+    private fedextrackingService: FedextrackingService,
+    private trackingService: TrackingService
   ) {}
 
   ngOnInit() {
@@ -47,6 +49,7 @@ export class BoxDetailComponent implements OnInit {
 
         if (this.spedition) {
           console.log(`Spedition: ${this.spedition}, Trackingnummer: ${this.trackingNumber}`);
+          this.fetchTrackingInfo(this.trackingNumber); // Tracking-Info laden
         } else {
           console.log('No relevant Spedition or Trackingnummer found for task:', task.name);
         }
@@ -54,6 +57,18 @@ export class BoxDetailComponent implements OnInit {
         this.subtasks = this.sortSubtasks(task.subtasks || []);
       });
     }
+  }
+
+  fetchTrackingInfo(trackingNumber: string) {
+    this.trackingService.getTrackingInfo(trackingNumber).subscribe(
+      data => {
+        this.fedexStatus = JSON.stringify(data, null, 2); // Tracking-Status speichern
+      },
+      error => {
+        console.error('Error fetching tracking info:', error);
+        this.fedexStatus = `Error: ${error.message}`;
+      }
+    );
   }
 
   sortSubtasks(subtasks: any[]): any[] {
