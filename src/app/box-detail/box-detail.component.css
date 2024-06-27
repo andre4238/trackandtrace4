@@ -20,7 +20,7 @@
 
 .headerbox {
   position: relative;
-  background-color: #000000;
+  background-color: black;
   padding: 16px 24px;
   display: flex;
   align-items: center;
@@ -71,14 +71,6 @@
 }
 
 /* Custom Fields Styles */
-.custom-fields h3 {
-  font-size: 18px;
-  color: #007bff;
-  margin-bottom: 10px;
-  border-bottom: 2px solid #007bff;
-  padding-bottom: 5px;
-}
-
 .custom-fields ul {
   list-style: none;
   padding: 0;
@@ -94,14 +86,6 @@
 }
 
 /* Subtasks Styles */
-.subtasks h3 {
-  font-size: 18px;
-  color: #007bff;
-  margin-bottom: 10px;
-  border-bottom: 2px solid #007bff;
-  padding-bottom: 5px;
-}
-
 .subtasks ul {
   list-style: none;
   padding: 0;
@@ -143,35 +127,39 @@
 
 /* Styles for FedEx Tracking Status */
 .fedex-status-container {
+  margin-top: 20px;
+}
+
+.fedex-status-box {
   background-color: #f9f9f9;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  margin-top: 20px;
+  margin-bottom: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.fedex-status-container h3 {
-  font-size: 18px;
+.fedex-status-box h4 {
+  font-size: 16px;
   color: #4d148c;
   margin-bottom: 10px;
   border-bottom: 2px solid #4d148c;
   padding-bottom: 5px;
 }
 
-.fedex-status-container p {
-  font-size: 16px;
+.fedex-status-box p,
+.fedex-status-box ul {
+  font-size: 14px;
   color: #333;
-  white-space: pre-wrap; /* Erlaubt Zeilenumbrüche und Beibehaltung der Formatierung */
 }
 
-.fedex-status-container ul {
+.fedex-status-box ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.fedex-status-container ul li {
+.fedex-status-box ul li {
   padding: 5px 0;
 }
 
