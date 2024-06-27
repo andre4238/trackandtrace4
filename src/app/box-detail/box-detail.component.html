@@ -1,13 +1,13 @@
 <div class="box-detail-container" [class.open]="isOpen">
   <div class="headerbox">
-    <h2>Order Details</h2>
+    <h2>{{ task.name }}</h2>
     <button class="close-btn" (click)="close()">×</button>
   </div>
   <div class="box-detail-content">
-    <p>{{ task.name }}</p>
+
 
     <div class="custom-fields">
-      <h3>Custom Fields</h3>
+
       <ul>
         <li>
           <strong>Spedition:</strong> {{ spedition }}
@@ -19,7 +19,7 @@
     </div>
 
     <div class="subtasks">
-      <h3>Subtasks</h3>
+
       <ul>
         <li *ngFor="let subtask of subtasks" [class]="getSubtaskClass(subtask.name)">
           {{ subtask.name }}
@@ -28,17 +28,18 @@
     </div>
 
     <div *ngIf="fedexStatus" class="fedex-status-container">
-      <h3>FedEx Tracking Status</h3>
+      <h3><b>FedEx Tracking Status</b></h3>
       <div *ngIf="fedexStatus">
         <p><strong>Tracking Number:</strong> {{ fedexStatus.trackingNumber }}</p>
         <p><strong>Status:</strong> {{ fedexStatus.status }}</p>
         <p><strong>Status Date:</strong> {{ fedexStatus.statusDate }}</p>
 
+        <!--
         <h4>Shipper Information</h4>
         <p><strong>City:</strong> {{ fedexStatus.shipper.city }}</p>
         <p><strong>State/Province:</strong> {{ fedexStatus.shipper.stateOrProvinceCode }}</p>
         <p><strong>Country:</strong> {{ fedexStatus.shipper.countryName }} ({{ fedexStatus.shipper.countryCode }})</p>
-
+        -->
         <h4>Recipient Information</h4>
         <p><strong>City:</strong> {{ fedexStatus.recipient.city }}</p>
         <p><strong>Country:</strong> {{ fedexStatus.recipient.countryName }} ({{ fedexStatus.recipient.countryCode }})</p>

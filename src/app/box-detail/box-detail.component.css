@@ -20,7 +20,7 @@
 
 .headerbox {
   position: relative;
-  background-color: #f2f2f2;
+  background-color: #000000;
   padding: 16px 24px;
   display: flex;
   align-items: center;
@@ -33,13 +33,13 @@
   margin: 0;
   font-size: 20px;
   font-weight: 600;
-  color: #333;
+  color: #fff;
 }
 
 .close-btn {
   background-color: transparent;
   border: none;
-  color: #dc3545;
+  color: #fff;
   font-size: 24px;
   font-weight: bold;
   cursor: pointer;
@@ -47,7 +47,7 @@
 }
 
 .close-btn:hover {
-  color: #c82333;
+  color: #f8d7da;
 }
 
 .box-detail-content {
@@ -57,7 +57,7 @@
 
 .box-detail-content p {
   font-size: 16px;
-  color: #666;
+  color: #333;
   margin-bottom: 16px;
 }
 
@@ -73,8 +73,10 @@
 /* Custom Fields Styles */
 .custom-fields h3 {
   font-size: 18px;
-  color: #333;
+  color: #007bff;
   margin-bottom: 10px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
 }
 
 .custom-fields ul {
@@ -86,7 +88,7 @@
 .custom-fields ul li {
   padding: 10px;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: #e9ecef;
   margin-bottom: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -94,8 +96,10 @@
 /* Subtasks Styles */
 .subtasks h3 {
   font-size: 18px;
-  color: #333;
+  color: #007bff;
   margin-bottom: 10px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
 }
 
 .subtasks ul {
@@ -113,7 +117,7 @@
 }
 
 .subtasks ul li:hover {
-  background-color: #f8f8f8;
+  background-color: #e2e6ea;
   cursor: pointer;
 }
 
@@ -149,13 +153,15 @@
 
 .fedex-status-container h3 {
   font-size: 18px;
-  color: #333;
+  color: #4d148c;
   margin-bottom: 10px;
+  border-bottom: 2px solid #4d148c;
+  padding-bottom: 5px;
 }
 
 .fedex-status-container p {
   font-size: 16px;
-  color: #666;
+  color: #333;
   white-space: pre-wrap; /* Erlaubt Zeilenumbrüche und Beibehaltung der Formatierung */
 }
 
