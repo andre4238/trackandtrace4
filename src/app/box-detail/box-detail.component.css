@@ -163,6 +163,11 @@
   padding: 5px 0;
 }
 
+#fedexheader{
+  color: #4d148c;
+
+}
+
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
   .box-detail-container {

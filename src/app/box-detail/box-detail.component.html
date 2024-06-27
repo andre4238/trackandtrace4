@@ -24,7 +24,7 @@
     </div>
 
     <div *ngIf="fedexStatus" class="fedex-status-container">
-      <h3><b>FedEx Tracking Status</b></h3>
+      <h3 id="fedexheader"><b>FedEx Tracking Status</b></h3>
       <div class="fedex-status-box">
         <h4>Tracking Information</h4>
         <p><strong>Tracking Number:</strong> {{ fedexStatus.trackingNumber }}</p>
