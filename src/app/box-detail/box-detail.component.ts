@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { AsanaNewProjectService } from '../asanaorders.service';
-import { TntTrackingService } from '../tnt-tracking.service';
+import { FedextrackingService } from '../fedextracking.service';
 
 @Component({
   selector: 'app-box-detail',
@@ -12,11 +12,13 @@ export class BoxDetailComponent implements OnInit {
   @Output() closeDetail = new EventEmitter<void>();
   isOpen = false;
   subtasks: any[] = [];
-  tntStatus: string = '';
+  fedexStatus: string = '';
+  spedition: string = '';
+  trackingNumber: string = '';
 
   constructor(
     private asanaService: AsanaNewProjectService,
-    private tntTrackingService: TntTrackingService
+    private fedextrackingService: FedextrackingService
   ) {}
 
   ngOnInit() {
@@ -24,40 +26,33 @@ export class BoxDetailComponent implements OnInit {
       this.isOpen = true;
     }, 0);
 
-    this.loadSubtasks();
+    this.loadTaskDetails();
   }
 
-  loadSubtasks() {
+  loadTaskDetails() {
     if (this.task && this.task.gid) {
-      this.asanaService.getSubtasks(this.task.gid).subscribe(subtasks => {
-        // Filter subtasks to include only those with TNT, FedEx, UPS, or DSV, case insensitive
-        this.subtasks = this.sortSubtasks(subtasks.filter(subtask =>
-          /TNT|FedEx|UPS|DSV/i.test(subtask.name)
-        ));
-        this.checkTntSubtask();
-      });
-    }
-  }
+      this.fedextrackingService.getTaskDetails(this.task.gid).subscribe(task => {
+        const customFields = task.custom_fields;
 
-  checkTntSubtask() {
-    for (let subtask of this.subtasks) {
-      const trackingNumber = this.tntTrackingService.extractTrackingNumber(subtask.name);
-      if (trackingNumber) {
-        console.log('Found tracking number:', trackingNumber);
-        this.tntTrackingService.getTrackingStatus(trackingNumber).subscribe(
-          status => {
-            console.log('TNT API response:', status);
-            this.tntStatus = JSON.stringify(status, null, 2);
-          },
-          error => {
-            console.error('TNT API error:', error);
-            this.tntStatus = `Error: ${error.message}`;
-          }
-        );
-        break; // Assuming only one TNT tracking subtask is needed
-      } else {
-        console.log('No tracking number found in subtask:', subtask.name);
-      }
+        const speditionField = customFields.find((field: any) => field.name === 'Spedition');
+        const trackingNumberField = customFields.find((field: any) => field.name === 'Trackingnummer');
+
+        if (speditionField) {
+          this.spedition = speditionField.text_value || speditionField.number_value || speditionField.enum_value?.name || '';
+        }
+
+        if (trackingNumberField) {
+          this.trackingNumber = trackingNumberField.text_value || trackingNumberField.number_value || trackingNumberField.enum_value?.name || '';
+        }
+
+        if (this.spedition) {
+          console.log(`Spedition: ${this.spedition}, Trackingnummer: ${this.trackingNumber}`);
+        } else {
+          console.log('No relevant Spedition or Trackingnummer found for task:', task.name);
+        }
+
+        this.subtasks = this.sortSubtasks(task.subtasks || []);
+      });
     }
   }
 

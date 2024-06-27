@@ -6,6 +6,18 @@
   <div class="box-detail-content">
     <p>{{ task.name }}</p>
 
+    <div class="custom-fields">
+      <h3>Custom Fields</h3>
+      <ul>
+        <li>
+          <strong>Spedition:</strong> {{ spedition }}
+        </li>
+        <li>
+          <strong>Trackingnummer:</strong> {{ trackingNumber }}
+        </li>
+      </ul>
+    </div>
+
     <div class="subtasks">
       <h3>Tracking</h3>
       <ul>
@@ -15,9 +27,9 @@
       </ul>
     </div>
 
-    <div *ngIf="tntStatus" class="tnt-status-container">
-      <h3>TNT Tracking Status</h3>
-      <p>{{ tntStatus }}</p>
+    <div *ngIf="fedexStatus" class="fedex-status-container">
+      <h3>FedEx Tracking Status</h3>
+      <p>{{ fedexStatus }}</p>
     </div>
   </div>
 </div>
