@@ -29,7 +29,7 @@
         <h4>Tracking Information</h4>
         <p><strong>Tracking Number:</strong> {{ fedexStatus.trackingNumber }}</p>
         <p><strong>Status:</strong> {{ fedexStatus.status }}</p>
-        <p><strong>Status Date:</strong> {{ fedexStatus.statusDate }}</p>
+        <!-- <p><strong>Status Date:</strong> {{ fedexStatus.statusDate }}</p> -->
       </div>
 
       <div class="fedex-status-box" *ngIf="fedexStatus.recipient">
@@ -50,7 +50,7 @@
       <div class="fedex-status-box" *ngIf="fedexStatus.deliveryDetails">
         <h4>Delivery Details</h4>
         <p><strong>Actual Delivery Address:</strong> {{ fedexStatus.deliveryDetails.actualDeliveryAddress.city }}, {{ fedexStatus.deliveryDetails.actualDeliveryAddress.countryName }} ({{ fedexStatus.deliveryDetails.actualDeliveryAddress.countryCode }})</p>
-        <p><strong>Location Type:</strong> {{ fedexStatus.deliveryDetails.locationType }}</p>
+        <!-- <p><strong>Location Type:</strong> {{ fedexStatus.deliveryDetails.locationType }}</p> -->
         <p><strong>Location Description:</strong> {{ fedexStatus.deliveryDetails.locationDescription }}</p>
         <p><strong>Delivery Attempts:</strong> {{ fedexStatus.deliveryDetails.deliveryAttempts }}</p>
         <p><strong>Received By:</strong> {{ fedexStatus.deliveryDetails.receivedByName }}</p>
