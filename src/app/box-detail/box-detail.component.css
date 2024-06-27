@@ -70,8 +70,29 @@
   margin: 0 auto 16px;
 }
 
+/* Custom Fields Styles */
+.custom-fields h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.custom-fields ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-fields ul li {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Subtasks Styles */
 .subtasks h3 {
-  margin-top: 0;
   font-size: 18px;
   color: #333;
   margin-bottom: 10px;
@@ -84,10 +105,10 @@
 }
 
 .subtasks ul li {
-  background-color: #f1f1f1;
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 5px;
+  background-color: #f1f1f1;
   transition: background-color 0.3s ease;
 }
 
@@ -103,21 +124,21 @@
 
 .subtasks ul li.fedex {
   background-color: purple;
-  color: white; /* Optionale Anpassung der Textfarbe für bessere Lesbarkeit */
+  color: white;
 }
 
 .subtasks ul li.ups {
   background-color: brown;
-  color: white; /* Optionale Anpassung der Textfarbe für bessere Lesbarkeit */
+  color: white;
 }
 
 .subtasks ul li.dsv {
   background-color: darkblue;
-  color: white; /* Optionale Anpassung der Textfarbe für bessere Lesbarkeit */
+  color: white;
 }
 
-/* Styles for TNT Tracking Status */
-.tnt-status-container {
+/* Styles for FedEx Tracking Status */
+.fedex-status-container {
   background-color: #f9f9f9;
   padding: 20px;
   border: 1px solid #ddd;
@@ -126,18 +147,29 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.tnt-status-container h3 {
+.fedex-status-container h3 {
   font-size: 18px;
   color: #333;
   margin-bottom: 10px;
 }
 
-.tnt-status-container p {
+.fedex-status-container p {
   font-size: 16px;
   color: #666;
   white-space: pre-wrap; /* Erlaubt Zeilenumbrüche und Beibehaltung der Formatierung */
 }
 
+.fedex-status-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fedex-status-container ul li {
+  padding: 5px 0;
+}
+
+/* Media Queries for responsiveness */
 @media (max-width: 768px) {
   .box-detail-container {
     top: 100%; /* Startposition außerhalb des Bildschirms */

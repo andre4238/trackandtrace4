@@ -13,7 +13,7 @@ export class BoxDetailComponent implements OnInit {
   @Output() closeDetail = new EventEmitter<void>();
   isOpen = false;
   subtasks: any[] = [];
-  fedexStatus: string = '';
+  fedexStatus: any = null;
   spedition: string = '';
   trackingNumber: string = '';
 
@@ -62,7 +62,7 @@ export class BoxDetailComponent implements OnInit {
   fetchTrackingInfo(trackingNumber: string) {
     this.trackingService.getTrackingInfo(trackingNumber).subscribe(
       data => {
-        this.fedexStatus = JSON.stringify(data, null, 2); // Tracking-Status speichern
+        this.fedexStatus = data; // Tracking-Status speichern
       },
       error => {
         console.error('Error fetching tracking info:', error);

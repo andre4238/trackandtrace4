@@ -29,7 +29,41 @@
 
     <div *ngIf="fedexStatus" class="fedex-status-container">
       <h3>FedEx Tracking Status</h3>
-      <pre>{{ fedexStatus }}</pre>
+      <div *ngIf="fedexStatus">
+        <p><strong>Tracking Number:</strong> {{ fedexStatus.trackingNumber }}</p>
+        <p><strong>Status:</strong> {{ fedexStatus.status }}</p>
+        <p><strong>Status Date:</strong> {{ fedexStatus.statusDate }}</p>
+
+        <h4>Shipper Information</h4>
+        <p><strong>City:</strong> {{ fedexStatus.shipper.city }}</p>
+        <p><strong>State/Province:</strong> {{ fedexStatus.shipper.stateOrProvinceCode }}</p>
+        <p><strong>Country:</strong> {{ fedexStatus.shipper.countryName }} ({{ fedexStatus.shipper.countryCode }})</p>
+
+        <h4>Recipient Information</h4>
+        <p><strong>City:</strong> {{ fedexStatus.recipient.city }}</p>
+        <p><strong>Country:</strong> {{ fedexStatus.recipient.countryName }} ({{ fedexStatus.recipient.countryCode }})</p>
+
+        <h4>Weight</h4>
+        <ul>
+          <li *ngFor="let weight of fedexStatus.weight">
+            {{ weight.value }} {{ weight.unit }}
+          </li>
+        </ul>
+
+        <h4>Delivery Details</h4>
+        <p><strong>Actual Delivery Address:</strong> {{ fedexStatus.deliveryDetails.actualDeliveryAddress.city }}, {{ fedexStatus.deliveryDetails.actualDeliveryAddress.countryName }} ({{ fedexStatus.deliveryDetails.actualDeliveryAddress.countryCode }})</p>
+        <p><strong>Location Type:</strong> {{ fedexStatus.deliveryDetails.locationType }}</p>
+        <p><strong>Location Description:</strong> {{ fedexStatus.deliveryDetails.locationDescription }}</p>
+        <p><strong>Delivery Attempts:</strong> {{ fedexStatus.deliveryDetails.deliveryAttempts }}</p>
+        <p><strong>Received By:</strong> {{ fedexStatus.deliveryDetails.receivedByName }}</p>
+
+        <!--<h4>Delivery Options Eligibility</h4>
+        <ul>
+          <li *ngFor="let option of fedexStatus.deliveryDetails.deliveryOptionEligibilityDetails">
+            <strong>{{ option.option }}:</strong> {{ option.eligibility }}
+          </li>
+        </ul>-->
+      </div>
     </div>
   </div>
 </div>
