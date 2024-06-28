@@ -25,7 +25,8 @@ import { ContainerBoxComponent } from './container-box/container-box.component';
 import { DownloadsComponent } from './downloads/downloads.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SafePipe } from '../services/safe.pipe'; // Importieren Sie die Safe-Pipe
+import { SafePipe } from '../services/safe.pipe';
+import { ServiceModalComponent } from './service-modal/service-modal.component'; // Importieren Sie die Safe-Pipe
 
 
 
@@ -43,7 +44,8 @@ import { SafePipe } from '../services/safe.pipe'; // Importieren Sie die Safe-Pi
     ContainerBoxComponent,
     DownloadsComponent,
     SidebarComponent,
-    SafePipe
+    SafePipe,
+    ServiceModalComponent
   ],
   imports: [
     BrowserModule,

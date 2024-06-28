@@ -4,17 +4,6 @@
     <button class="close-btn" (click)="close()">×</button>
   </div>
   <div class="box-detail-content">
-    <div class="custom-fields">
-      <ul>
-        <li>
-          <strong>Spedition:</strong> {{ spedition }}
-        </li>
-        <li>
-          <strong>Trackingnummer:</strong> {{ trackingNumber }}
-        </li>
-      </ul>
-    </div>
-
     <div class="subtasks">
       <ul>
         <li *ngFor="let subtask of subtasks" [class]="getSubtaskClass(subtask.name)">
@@ -22,6 +11,7 @@
         </li>
       </ul>
     </div>
+    <button id="servicebutton" (click)="openServiceModal()">Support</button>
 
     <div *ngIf="fedexStatus" class="fedex-status-container">
       <h3 id="fedexheader"><b>FedEx Tracking Status</b></h3>
@@ -34,7 +24,6 @@
           </a>
         </p>
         <p><strong>Status:</strong> {{ fedexStatus.status }}</p>
-        <!-- <p><strong>Status Date:</strong> {{ fedexStatus.statusDate }}</p> -->
       </div>
 
       <div class="fedex-status-box" *ngIf="fedexStatus.recipient">
@@ -55,11 +44,15 @@
       <div class="fedex-status-box" *ngIf="fedexStatus.deliveryDetails">
         <h4>Delivery Details</h4>
         <p><strong>Actual Delivery Address:</strong> {{ fedexStatus.deliveryDetails.actualDeliveryAddress.city }}, {{ fedexStatus.deliveryDetails.actualDeliveryAddress.countryName }} ({{ fedexStatus.deliveryDetails.actualDeliveryAddress.countryCode }})</p>
-        <!-- <p><strong>Location Type:</strong> {{ fedexStatus.deliveryDetails.locationType }}</p> -->
         <p><strong>Location Description:</strong> {{ fedexStatus.deliveryDetails.locationDescription }}</p>
         <p><strong>Delivery Attempts:</strong> {{ fedexStatus.deliveryDetails.deliveryAttempts }}</p>
         <p><strong>Received By:</strong> {{ fedexStatus.deliveryDetails.receivedByName }}</p>
       </div>
+
+      <a id="fedexlinkbutton" [href]="'https://www.fedex.com/fedextrack/?trknbr=' + fedexStatus.trackingNumber + '&status=' + fedexStatus.status">
+        Show in FedEx
+      </a>
     </div>
   </div>
+  <app-service-modal *ngIf="showServiceModal" [task]="task" [trackingNumber]="trackingNumber" [fedexStatus]="fedexStatus" (closeModal)="closeServiceModal()"></app-service-modal>
 </div>

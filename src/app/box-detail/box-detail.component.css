@@ -128,6 +128,9 @@
 /* Styles for FedEx Tracking Status */
 .fedex-status-container {
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Zentriert alle Inhalte innerhalb des Containers */
 }
 
 .fedex-status-box {
@@ -137,6 +140,11 @@
   border-radius: 8px;
   margin-bottom: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Box füllt die gesamte Breite des Containers */
+  max-width: 500px; /* Optionale maximale Breite */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Zentriert alle Inhalte innerhalb der Box */
 }
 
 .fedex-status-box h4 {
@@ -145,12 +153,16 @@
   margin-bottom: 10px;
   border-bottom: 2px solid #4d148c;
   padding-bottom: 5px;
+  width: 100%; /* Breite füllt die gesamte Box */
+  text-align: center; /* Text zentrieren */
 }
 
 .fedex-status-box p,
 .fedex-status-box ul {
   font-size: 14px;
   color: #333;
+  width: 100%; /* Breite füllt die gesamte Box */
+  text-align: center; /* Text zentrieren */
 }
 
 .fedex-status-box ul {
@@ -163,8 +175,22 @@
   padding: 5px 0;
 }
 
-#fedexheader{
+#fedexheader {
   color: #4d148c;
+  text-align: center;
+}
+
+#fedexlinkbutton {
+  background-color: #4d148c;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
 
 }
 
@@ -186,3 +212,6 @@
     overflow: hidden; /* Verhindert das Scrollen der Hauptseite */
   }
 }
+
+
+

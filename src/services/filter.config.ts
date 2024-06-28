@@ -5,7 +5,8 @@ export const EMAIL_FILTERS: { [email: string]: string[] } = {
     'dts@mail.com': ['dts', 'DTS'],
     'team-was@was-info.com': ['was', 'WAS'],
     'coler@coler.de': ['coler', 'EKB', 'Coler'],
-  'vehidiag@gmail.com': ['Vehi', 'Vehi Diag', 'vehi diag'],
+    'vehidiag@gmail.com': ['Vehi', 'Vehi Diag', 'vehi diag'],
+    'ddc@test.com': ['ddc', 'DDC'],
 
     // Weitere E-Mail-Adressen und Filter hier hinzufügen
   };

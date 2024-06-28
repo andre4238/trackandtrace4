@@ -16,6 +16,7 @@ export class BoxDetailComponent implements OnInit {
   fedexStatus: any = null;
   spedition: string = '';
   trackingNumber: string = '';
+  showServiceModal = false;
 
   constructor(
     private asanaService: AsanaNewProjectService,
@@ -101,6 +102,14 @@ export class BoxDetailComponent implements OnInit {
     } else {
       return '';
     }
+  }
+
+  openServiceModal() {
+    this.showServiceModal = true;
+  }
+
+  closeServiceModal() {
+    this.showServiceModal = false;
   }
 
   close() {
