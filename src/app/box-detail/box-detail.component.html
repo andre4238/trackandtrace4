@@ -27,7 +27,12 @@
       <h3 id="fedexheader"><b>FedEx Tracking Status</b></h3>
       <div class="fedex-status-box">
         <h4>Tracking Information</h4>
-        <p><strong>Tracking Number:</strong> {{ fedexStatus.trackingNumber }}</p>
+        <p>
+          <strong>Tracking Number: </strong>
+          <a [href]="'https://www.fedex.com/fedextrack/?trknbr=' + fedexStatus.trackingNumber + '&status=' + fedexStatus.status">
+            {{ fedexStatus.trackingNumber }}
+          </a>
+        </p>
         <p><strong>Status:</strong> {{ fedexStatus.status }}</p>
         <!-- <p><strong>Status Date:</strong> {{ fedexStatus.statusDate }}</p> -->
       </div>
