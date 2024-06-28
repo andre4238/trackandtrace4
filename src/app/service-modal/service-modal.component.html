@@ -1,26 +1,50 @@
-<div class="modal">
-  <div class="modal-content">
-    <span class="close-btn" (click)="close()">&times;</span>
-    <h2>Service Request</h2>
-    <form>
-      <ul>
-        <li><strong>Task:</strong> {{ task.name }}</li>
-        <li><strong>Tracking Number:</strong> {{ trackingNumber }}</li>
-        <li><strong>Status:</strong> {{ fedexStatus.status }}</li>
-        <!-- Add more details as needed -->
-      </ul>
-      <div class="checkboxes">
-        <label>
-          <input type="checkbox" name="issue" value="defective"> Defekter Artikel
-        </label>
-        <label>
-          <input type="checkbox" name="issue" value="wrong-delivery"> Falschlieferung
-        </label>
-        <label>
-          <input type="checkbox" name="issue" value="return"> Rückgabe
-        </label>
+<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="serviceModalLabel">Service Request</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
       </div>
-      <button type="submit">Submit</button>
-    </form>
+      <div class="modal-body">
+        <form>
+          <ul class="list-group mb-3">
+            <li class="list-group-item"><strong>Task:</strong> {{ task.name }}</li>
+            <li class="list-group-item"><strong>Tracking Number:</strong> {{ trackingNumber }}</li>
+            <li class="list-group-item"><strong>Status:</strong> {{ fedexStatus.status }}</li>
+            <!-- Add more details as needed -->
+          </ul>
+          <div class="mb-3">
+            <label class="form-label">Issue:</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="issue" value="defective" id="defective">
+              <label class="form-check-label" for="defective">
+                Defekter Artikel
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="issue" value="wrong-delivery" id="wrong-delivery">
+              <label class="form-check-label" for="wrong-delivery">
+                Falschlieferung
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="issue" value="return" id="return">
+              <label class="form-check-label" for="return">
+                Rückgabe
+              </label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="additionalDetails" class="form-label">Zusätzliche Details:</label>
+            <textarea class="form-control" id="additionalDetails" name="additionalDetails" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

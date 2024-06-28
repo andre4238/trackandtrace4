@@ -3,6 +3,8 @@ import { AsanaNewProjectService } from '../asanaorders.service';
 import { FedextrackingService } from '../fedextracking.service';
 import { TrackingService } from '../tracking.service';
 
+declare var bootstrap: any; // Bootstrap JS
+
 @Component({
   selector: 'app-box-detail',
   templateUrl: './box-detail.component.html',
@@ -106,10 +108,22 @@ export class BoxDetailComponent implements OnInit {
 
   openServiceModal() {
     this.showServiceModal = true;
+    const modalElement = document.getElementById('serviceModal');
+    if (modalElement) {
+      const modal = new bootstrap.Modal(modalElement);
+      modal.show();
+    }
   }
 
   closeServiceModal() {
     this.showServiceModal = false;
+    const modalElement = document.getElementById('serviceModal');
+    if (modalElement) {
+      const modal = bootstrap.Modal.getInstance(modalElement);
+      if (modal) {
+        modal.hide();
+      }
+    }
   }
 
   close() {
