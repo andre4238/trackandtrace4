@@ -191,7 +191,6 @@
   text-align: center;
   text-decoration: none;
   font-weight: bold;
-
 }
 
 /* Media Queries for responsiveness */
@@ -213,5 +212,41 @@
   }
 }
 
+.modal-header {
+  background-color: black;
+  color: white;
+}
 
+.btn-close {
+  background-color: white;
+}
 
+.fedex-status-container .card {
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.fedex-status-container .card-body {
+  padding: 20px;
+}
+
+.fedex-status-container .card-title {
+  font-size: 16px;
+  color: #4d148c;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #4d148c;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.fedex-status-container .card-text,
+.fedex-status-container .list-group {
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+}
+
+.fedex-status-container .list-group-item {
+  padding: 5px 0;
+}

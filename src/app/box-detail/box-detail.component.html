@@ -1,52 +1,61 @@
 <div class="box-detail-container" [class.open]="isOpen">
-  <div class="headerbox">
+  <div class="headerbox bg-dark text-white">
     <h2>{{ task.name }}</h2>
-    <button class="close-btn" (click)="close()">×</button>
+    <button class="close-btn btn-close btn-close-white" aria-label="Close" (click)="close()"></button>
   </div>
-  <div class="box-detail-content">
-    <div class="subtasks">
-      <ul>
-        <li *ngFor="let subtask of subtasks" [class]="getSubtaskClass(subtask.name)">
+  <div class="box-detail-content container">
+    <div class="subtasks mb-3">
+      <ul class="list-group">
+        <li *ngFor="let subtask of subtasks" [class]="getSubtaskClass(subtask.name)" class="list-group-item">
           {{ subtask.name }}
         </li>
       </ul>
     </div>
-    <button id="servicebutton" class="btn btn-secondary" (click)="openServiceModal()">Support</button>
+    <button id="servicebutton" class="btn btn-secondary mb-3" (click)="openServiceModal()">Support</button>
 
     <div *ngIf="fedexStatus" class="fedex-status-container">
       <h3 id="fedexheader"><b>FedEx Tracking Status</b></h3>
-      <div class="fedex-status-box">
-        <h4>Tracking Information</h4>
-        <p>
-          <strong>Tracking Number: </strong>
-          <a [href]="'https://www.fedex.com/fedextrack/?trknbr=' + fedexStatus.trackingNumber + '&status=' + fedexStatus.status">
-            {{ fedexStatus.trackingNumber }}
-          </a>
-        </p>
-        <p><strong>Status:</strong> {{ fedexStatus.status }}</p>
+
+      <div class="card fedex-status-box mb-3">
+        <div class="card-body">
+          <h4 class="card-title">Tracking Information</h4>
+          <p class="card-text">
+            <strong>Tracking Number: </strong>
+            <a [href]="'https://www.fedex.com/fedextrack/?trknbr=' + fedexStatus.trackingNumber + '&status=' + fedexStatus.status">
+              {{ fedexStatus.trackingNumber }}
+            </a>
+          </p>
+          <p class="card-text"><strong>Status:</strong> {{ fedexStatus.status }}</p>
+        </div>
       </div>
 
-      <div class="fedex-status-box" *ngIf="fedexStatus.recipient">
-        <h4>Recipient Information</h4>
-        <p><strong>City:</strong> {{ fedexStatus.recipient.city }}</p>
-        <p><strong>Country:</strong> {{ fedexStatus.recipient.countryName }} ({{ fedexStatus.recipient.countryCode }})</p>
+      <div class="card fedex-status-box mb-3" *ngIf="fedexStatus.recipient">
+        <div class="card-body">
+          <h4 class="card-title">Recipient Information</h4>
+          <p class="card-text"><strong>City:</strong> {{ fedexStatus.recipient.city }}</p>
+          <p class="card-text"><strong>Country:</strong> {{ fedexStatus.recipient.countryName }} ({{ fedexStatus.recipient.countryCode }})</p>
+        </div>
       </div>
 
-      <div class="fedex-status-box" *ngIf="fedexStatus.weight">
-        <h4>Weight</h4>
-        <ul>
-          <li *ngFor="let weight of fedexStatus.weight">
-            {{ weight.value }} {{ weight.unit }}
-          </li>
-        </ul>
+      <div class="card fedex-status-box mb-3" *ngIf="fedexStatus.weight">
+        <div class="card-body">
+          <h4 class="card-title">Weight</h4>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let weight of fedexStatus.weight">
+              {{ weight.value }} {{ weight.unit }}
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <div class="fedex-status-box" *ngIf="fedexStatus.deliveryDetails">
-        <h4>Delivery Details</h4>
-        <p><strong>Actual Delivery Address:</strong> {{ fedexStatus.deliveryDetails.actualDeliveryAddress.city }}, {{ fedexStatus.deliveryDetails.actualDeliveryAddress.countryName }} ({{ fedexStatus.deliveryDetails.actualDeliveryAddress.countryCode }})</p>
-        <p><strong>Location Description:</strong> {{ fedexStatus.deliveryDetails.locationDescription }}</p>
-        <p><strong>Delivery Attempts:</strong> {{ fedexStatus.deliveryDetails.deliveryAttempts }}</p>
-        <p><strong>Received By:</strong> {{ fedexStatus.deliveryDetails.receivedByName }}</p>
+      <div class="card fedex-status-box mb-3" *ngIf="fedexStatus.deliveryDetails">
+        <div class="card-body">
+          <h4 class="card-title">Delivery Details</h4>
+          <p class="card-text"><strong>Actual Delivery Address:</strong> {{ fedexStatus.deliveryDetails.actualDeliveryAddress.city }}, {{ fedexStatus.deliveryDetails.actualDeliveryAddress.countryName }} ({{ fedexStatus.deliveryDetails.actualDeliveryAddress.countryCode }})</p>
+          <p class="card-text"><strong>Location Description:</strong> {{ fedexStatus.deliveryDetails.locationDescription }}</p>
+          <p class="card-text"><strong>Delivery Attempts:</strong> {{ fedexStatus.deliveryDetails.deliveryAttempts }}</p>
+          <p class="card-text"><strong>Received By:</strong> {{ fedexStatus.deliveryDetails.receivedByName }}</p>
+        </div>
       </div>
 
       <a id="fedexlinkbutton" [href]="'https://www.fedex.com/fedextrack/?trknbr=' + fedexStatus.trackingNumber + '&status=' + fedexStatus.status" class="btn btn-primary">
@@ -60,9 +69,9 @@
 <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-dark text-white">
         <h5 class="modal-title" id="serviceModalLabel">Service Request</h5>
-        <button type="button" class="btn-close" aria-label="Close" (click)="closeServiceModal()"></button>
+        <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="closeServiceModal()"></button>
       </div>
       <div class="modal-body">
         <form>
@@ -96,6 +105,14 @@
           <div class="mb-3">
             <label for="email" class="form-label">Email:</label>
             <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="purchaseDate" class="form-label">Kaufdatum:</label>
+            <input type="date" class="form-control" id="purchaseDate" name="purchaseDate" required>
+          </div>
+          <div class="mb-3">
+            <label for="serialNumber" class="form-label">Seriennummer:</label>
+            <input type="text" class="form-control" id="serialNumber" name="serialNumber" required>
           </div>
           <div class="mb-3">
             <label for="additionalDetails" class="form-label">Zusätzliche Details:</label>
