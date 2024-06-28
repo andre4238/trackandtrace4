@@ -1,16 +1,16 @@
-<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+<div class="modal fade show" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-modal="true" role="dialog" style="display: block;">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-dark text-white">
         <h5 class="modal-title" id="serviceModalLabel">Service Request</h5>
         <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form (ngSubmit)="submitRequest()">
           <ul class="list-group mb-3">
-            <li class="list-group-item"><strong>Task:</strong> {{ task.name }}</li>
+            <li class="list-group-item"><strong>Task:</strong> {{ task?.name }}</li>
             <li class="list-group-item"><strong>Tracking Number:</strong> {{ trackingNumber }}</li>
-            <li class="list-group-item"><strong>Status:</strong> {{ fedexStatus.status }}</li>
+            <li class="list-group-item"><strong>Status:</strong> {{ fedexStatus?.status }}</li>
             <!-- Add more details as needed -->
           </ul>
           <div class="mb-3">
@@ -30,7 +30,7 @@
             <div class="form-check">
               <input class="form-check-input" type="checkbox" name="issue" value="return" id="return">
               <label class="form-check-label" for="return">
-                Rückgabe
+                Rückgabe1
               </label>
             </div>
           </div>
@@ -39,10 +39,19 @@
             <input type="email" class="form-control" id="email" name="email" required>
           </div>
           <div class="mb-3">
+            <label for="purchaseDate" class="form-label">Kaufdatum:</label>
+            <input type="date" class="form-control" id="purchaseDate" name="purchaseDate" required>
+          </div>
+          <div class="mb-3">
+            <label for="serialNumber" class="form-label">Seriennummer:</label>
+            <input type="text" class="form-control" id="serialNumber" name="serialNumber" required>
+          </div>
+          <div class="mb-3">
             <label for="additionalDetails" class="form-label">Zusätzliche Details:</label>
             <textarea class="form-control" id="additionalDetails" name="additionalDetails" rows="4" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
+          test
         </form>
       </div>
     </div>
