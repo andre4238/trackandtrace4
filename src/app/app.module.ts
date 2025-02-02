@@ -26,7 +26,8 @@ import { DownloadsComponent } from './downloads/downloads.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SafePipe } from '../services/safe.pipe';
-import { ServiceModalComponent } from './service-modal/service-modal.component'; // Importieren Sie die Safe-Pipe
+import { ServiceModalComponent } from './service-modal/service-modal.component';
+import { SalesKanbanComponent } from './sales-kanban/sales-kanban.component'; // Importieren Sie die Safe-Pipe
 
 
 
@@ -45,7 +46,8 @@ import { ServiceModalComponent } from './service-modal/service-modal.component';
     DownloadsComponent,
     SidebarComponent,
     SafePipe,
-    ServiceModalComponent
+    ServiceModalComponent,
+    SalesKanbanComponent
   ],
   imports: [
     BrowserModule,

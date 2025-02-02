@@ -17,9 +17,11 @@
 }
 
 .nav-link:hover {
-  background-color: #042DE3;
+  background-color: rgb(64,80,254);
   text-decoration: none;
   color: white;
+  font-weight: bold;
+
 }
 
 /* Sidebar nur auf Desktops anzeigen */

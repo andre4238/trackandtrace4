@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="d-flex" style="margin-top: 100px;">
+  <app-sidebar class="sidebar" style="width: 250px;"></app-sidebar>
+  <div class="container mt-4" style="flex-grow: 1;">
+    <div class="row">
+      <!-- Iteration über die verschiedenen Stufen -->
+      <ng-container *ngFor="let stage of stages">
+        <div class="col-md-3">
+          <div class="card shadow-sm">
+            <div class="card-header text-center text-white" style="background-color: rgb(64,80,254);">
+              {{ stage }}
+            </div>
+            <div class="card-body" (dragover)="allowDrop($event)" (drop)="onDrop($event, stage)">
+              <ng-container *ngIf="deals">
+                <ng-container *ngFor="let deal of deals">
+                  <div *ngIf="deal.stage === stage"
+                       class="card mb-2 p-2 shadow-sm border draggable"
+                       draggable="true"
+                       (dragstart)="onDragStart($event, deal.id)">
+                    {{ deal.name }}
+                  </div>
+                </ng-container>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
