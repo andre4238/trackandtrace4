@@ -3,13 +3,12 @@
 <div class="login-container container mt-5">
   <div class="row justify-content-center">
     <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-      <div class="card">
+      <div class="card shadow-lg">
         <div class="card-body">
-          <h2 class="card-title text-center">LOGIN</h2>
+          <h2 class="card-title text-center mb-4">🔑 Login</h2>
 
-
-          <!-- Fehlermeldung anzeigen, wenn vorhanden -->
-          <div *ngIf="errorMessage" class="alert alert-danger">
+          <!-- Fehlermeldung global anzeigen -->
+          <div *ngIf="errorMessage" class="alert alert-danger text-center">
             {{ errorMessage }}
           </div>
 
@@ -17,27 +16,33 @@
             <!-- E-Mail-Eingabefeld -->
             <div class="form-group">
               <label for="email">E-Mail:</label>
-              <input type="email" id="email" formControlName="email" class="form-control" placeholder="">
-              <!-- Fehlermeldungen für das E-Mail-Feld anzeigen -->
+              <input type="email" id="email" formControlName="email" class="form-control" placeholder="E-Mail eingeben">
               <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="text-danger">
-                <small *ngIf="email?.errors?.['required']">E-Mail required.</small>
-                <small *ngIf="email?.errors?.['email']">incorrect Email.</small>
+                <small *ngIf="email?.errors?.['required']">E-Mail erforderlich.</small>
+                <small *ngIf="email?.errors?.['email']">Ungültige E-Mail-Adresse.</small>
               </div>
             </div>
 
             <!-- Passwort-Eingabefeld -->
             <div class="form-group mt-3">
-              <label for="password">Password:</label>
-              <input type="password" id="password" formControlName="password" class="form-control" placeholder="">
-              <!-- Fehlermeldungen für das Passwort-Feld anzeigen -->
+              <label for="password">Passwort:</label>
+              <input type="password" id="password" formControlName="password" class="form-control" placeholder="Passwort eingeben">
               <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="text-danger">
-                <small *ngIf="password?.errors?.['required']">please enter password.</small>
+                <small *ngIf="password?.errors?.['required']">Passwort erforderlich.</small>
               </div>
             </div>
 
-            <!-- Anmeldebutton -->
-            <button type="submit" class="btn btn-primary btn-block mt-4">login</button>
+            <!-- Login-Button -->
+            <button type="submit" class="btn btn-primary btn-block mt-4" [disabled]="loginForm.invalid">
+              Login
+            </button>
           </form>
+
+          <!-- Registrierung und Passwort vergessen -->
+          <div class="text-center mt-3">
+            <a href="#" class="text-primary">Passwort vergessen?</a> |
+            <a href="#" class="text-primary">Registrieren</a>
+          </div>
         </div>
       </div>
     </div>
