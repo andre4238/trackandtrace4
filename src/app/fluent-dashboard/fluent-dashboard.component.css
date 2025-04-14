@@ -1,0 +1,43 @@
+:host {
+  display: block;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Layout: Sidebar + Content */
+.dashboard-layout {
+  display: flex;
+  height: calc(100vh - 64px); /* Wenn Header 64px hoch ist */
+}
+
+/* Sidebar */
+app-fluent-sidebar {
+  flex: 0 0 80px;
+  height: 100%;
+}
+
+/* Hauptinhalt */
+.fluent-table-container-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  background-color: #f3f2f1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Container-Boxen */
+.container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.container h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #323130;
+}

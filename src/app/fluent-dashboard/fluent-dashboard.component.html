@@ -1,0 +1,24 @@
+<!-- Header -->
+<app-fluent-header></app-fluent-header>
+
+<!-- Hauptbereich: Sidebar + Inhalt -->
+<div class="dashboard-layout">
+  <app-fluent-sidebar></app-fluent-sidebar>
+
+  <div class="fluent-table-container-content">
+    <!-- Inhalt: z. B. Orders, Warranty, Status -->
+    <div class="container">
+      <h2 id="orders_header">Your Orders</h2>
+      <app-box-new-project></app-box-new-project>
+    </div>
+
+    <div class="container">
+      <h2 id="warranty_header">Warranty & Container Status</h2>
+      <app-box></app-box>
+    </div>
+
+    <div class="container">
+      <app-container-box></app-container-box>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+.fluent-header {
+  height: 64px;
+  width: 100%;
+  background-color: #EBEBE8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  height: 32px;
+  width: 32px;
+}
+
+.app-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.header-button:hover {
+  background-color: #D0E7FA;
+}
+
+.header-button img {
+  width: 20px;
+  height: 20px;
+}

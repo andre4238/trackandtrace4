@@ -1,0 +1,70 @@
+
+
+<nav class="sidebar">
+  <!-- Add Button oben -->
+  <button class="fluent-button">
+    <img src="assets/add-2.svg" alt="+" />
+    <span class="button-label">Create</span>
+  </button>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar-nav">
+
+    <!-- Dashboard -->
+    <button class="sidebar-link" [class.active]="activeButton === 'dashboard'" (click)="setActive('dashboard')">
+      <span class="sidebar-indicator"></span>
+      <span class="icon">
+        <img
+          [src]="activeButton === 'dashboard'
+                  ? 'assets/dashboard_klicked.svg'
+                  : 'assets/dashboard_unklicked.svg'"
+          alt="Dashboard Icon"
+        />
+      </span>
+      <span class="label">Dashboard</span>
+    </button>
+
+    <!-- Summary -->
+    <button class="sidebar-link" [class.active]="activeButton === 'summary'" (click)="setActive('summary')">
+      <span class="sidebar-indicator"></span>
+      <span class="icon">
+        <img
+          [src]="activeButton === 'summary'
+                  ? 'assets/summary_klicked.svg'
+                  : 'assets/summary_unklicked.svg'"
+          alt="Summary Icon"
+        />
+      </span>
+      <span class="label">Summary</span> <!-- ✅ Hier war der Text klein geschrieben -->
+    </button>
+
+    <!-- Kunden -->
+    <button class="sidebar-link" [class.active]="activeButton === 'kunden'" (click)="setActive('kunden')">
+      <span class="sidebar-indicator"></span>
+      <span class="icon">
+        <img
+          [src]="activeButton === 'kunden'
+                  ? 'assets/customer_klicked.svg'
+                  : 'assets/customer_unklicked.svg'"
+          alt="Kunden Icon"
+        />
+      </span>
+      <span class="label">Customer</span>
+    </button>
+
+    <!-- Einstellungen -->
+    <button class="sidebar-link" [class.active]="activeButton === 'settings'" (click)="setActive('settings')">
+      <span class="sidebar-indicator"></span>
+      <span class="icon">
+        <img
+          [src]="activeButton === 'settings'
+                  ? 'assets/settings_klicked.svg'
+                  : 'assets/settings_unklicked.svg'"
+          alt="Einstellungen Icon"
+        />
+      </span>
+      <span class="label">Settings</span>
+    </button>
+
+  </div>
+</nav>
