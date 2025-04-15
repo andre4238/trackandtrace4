@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class FluentDashboardComponent {
 
+  activeButton: string = 'dashboard';
+
+  setActive(button: string) {
+    this.activeButton = button;
+  }
+
 }

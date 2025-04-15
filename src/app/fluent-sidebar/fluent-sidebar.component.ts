@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-fluent-sidebar',
@@ -8,7 +8,12 @@ import { Component } from '@angular/core';
 export class FluentSidebarComponent {
   activeButton: string = 'dashboard'; // Standard aktiv
 
-  setActive(name: string) {
-    this.activeButton = name;
+
+
+  @Output() activeChange = new EventEmitter<string>();
+
+  setActive(button: string) {
+    this.activeButton = button;
+    this.activeChange.emit(button);
   }
 }

@@ -1,10 +1,20 @@
 <app-fluent-header></app-fluent-header>
 
 <div class="dashboard-layout">
-  <app-fluent-sidebar></app-fluent-sidebar>
+  <app-fluent-sidebar (activeChange)="setActive($event)"></app-fluent-sidebar>
 
-  <!-- Hauptbereich rechts von Sidebar -->
   <div class="dashboard-main">
-    <app-box-new-project></app-box-new-project>
+
+    <!-- Dynamisch geladene Komponente -->
+    <ng-container [ngSwitch]="activeButton">
+      <app-box-new-project *ngSwitchCase="'dashboard'"></app-box-new-project>
+      <app-summary *ngSwitchCase="'summary'"></app-summary>
+      <app-customer-box *ngSwitchCase="'kunden'"></app-customer-box>
+      <app-settings-box *ngSwitchCase="'settings'"></app-settings-box>
+
+      <!-- Fallback optional -->
+      <div *ngSwitchDefault class="p-4 text-muted">Bitte eine Ansicht auswählen.</div>
+    </ng-container>
+
   </div>
 </div>

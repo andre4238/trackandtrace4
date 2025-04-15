@@ -1,21 +1,31 @@
-<table class="table table-responsive">
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Status</th>
-    <th>Status Image</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let task of tasks" [ngClass]="{'selected': selectedTask === task}" (click)="selectTask(task)">
-    <td>{{ task.name }}</td>
-    <td>{{ task.status }}/5</td>
-    <td>
-      <img [src]="'/assets/' + task.status + '.png'" alt="Status Image" class="box-image">
-    </td>
-  </tr>
-  </tbody>
-</table>
+<div class="fluent-table-container">
+  <table class="fluent-table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Statusbild</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr
+      *ngFor="let task of tasks"
+      [ngClass]="{ selected: selectedTask === task }"
+      (click)="selectTask(task)"
+    >
+      <td>{{ task.name }}</td>
+      <td>{{ task.status }}/5</td>
+      <td>
+        <img
+          [src]="'/assets/' + task.status + '.png'"
+          alt="Status Image"
+          class="fluent-status-image"
+        />
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
-<!-- Hier soll die box-detail Komponente angezeigt werden -->
-<ng-template #detailContainer></ng-template>
+  <!-- Hier soll die box-detail Komponente angezeigt werden -->
+  <ng-template #detailContainer></ng-template>
+</div>
