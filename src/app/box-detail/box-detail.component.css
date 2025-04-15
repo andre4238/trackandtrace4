@@ -1,252 +1,199 @@
-/* Styles for box-detail component */
+:host {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Slide-in Panel */
 .box-detail-container {
   position: fixed;
   top: 0;
-  right: -400px; /* Startposition außerhalb des Bildschirms */
+  right: -400px;
   width: 400px;
   height: 100%;
-  background-color: #fff;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
-  transition: right 0.3s ease, top 0.3s ease; /* Transition für den Sliden-Effekt */
+  background-color: #ffffff;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+  transition: right 0.3s ease;
   z-index: 1050;
-  overflow-y: auto; /* Ermöglicht das Scrollen innerhalb der Komponente */
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
 
 .box-detail-container.open {
-  right: 0; /* Endposition im sichtbaren Bereich */
+  right: 0;
 }
 
-.headerbox {
-  position: relative;
-  background-color: black;
+/* Header */
+.fluent-headerbox {
+  background-color: #787878;
+  color: white;
   padding: 16px 24px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 1060; /* Ensure header is above other content */
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
-.headerbox h2 {
+.fluent-headerbox h2 {
   margin: 0;
-  font-size: 20px;
+  font-size: 1.1rem;
   font-weight: 600;
-  color: #fff;
 }
 
 .close-btn {
-  background-color: transparent;
+  background: none;
   border: none;
-  color: #fff;
-  font-size: 24px;
-  font-weight: bold;
+  color: white;
+  font-size: 20px;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: opacity 0.2s ease;
 }
-
 .close-btn:hover {
-  color: #f8d7da;
+  opacity: 0.8;
 }
 
+/* Content */
 .box-detail-content {
-  padding: 20px;
+  padding: 1.5rem;
   flex-grow: 1;
 }
 
-.box-detail-content p {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 16px;
-}
-
-.box-detail-content img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: block;
-  margin: 0 auto 16px;
-}
-
-/* Custom Fields Styles */
-.custom-fields ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.custom-fields ul li {
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #e9ecef;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Subtasks Styles */
-.subtasks ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.subtasks ul li {
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 5px;
-  background-color: #f1f1f1;
-  transition: background-color 0.3s ease;
-}
-
-.subtasks ul li:hover {
-  background-color: #e2e6ea;
-  cursor: pointer;
-}
-
-.subtasks ul li.tnt {
-  background-color: #E94A0A;
-  color: white;
-}
-
-.subtasks ul li.fedex {
-  background-color: purple;
-  color: white;
-}
-
-.subtasks ul li.ups {
-  background-color: brown;
-  color: white;
-}
-
-.subtasks ul li.dsv {
-  background-color: darkblue;
-  color: white;
-}
-
-/* Styles for FedEx Tracking Status */
-.fedex-status-container {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Zentriert alle Inhalte innerhalb des Containers */
+.section-title {
+  color: #0078D4;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .fedex-status-box {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%; /* Box füllt die gesamte Breite des Containers */
-  max-width: 500px; /* Optionale maximale Breite */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Zentriert alle Inhalte innerhalb der Box */
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .fedex-status-box h4 {
-  font-size: 16px;
-  color: #4d148c;
-  margin-bottom: 10px;
-  border-bottom: 2px solid #4d148c;
-  padding-bottom: 5px;
-  width: 100%; /* Breite füllt die gesamte Box */
-  text-align: center; /* Text zentrieren */
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #323130;
+  border-bottom: 2px solid #0078D4;
+  padding-bottom: 4px;
 }
 
 .fedex-status-box p,
-.fedex-status-box ul {
-  font-size: 14px;
-  color: #333;
-  width: 100%; /* Breite füllt die gesamte Box */
-  text-align: center; /* Text zentrieren */
+.fedex-status-box li {
+  font-size: 0.85rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
 }
 
-.fedex-status-box ul {
+.fedex-status-box a {
+  color: #0078D4;
+  text-decoration: none;
+}
+.fedex-status-box a:hover {
+  text-decoration: underline;
+}
+
+/* Fluent Button */
+.fluent-button {
+  background-color: #0078D4;
+  color: white;
+  padding: 10px 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+  margin-top: 1rem;
+}
+
+.fluent-button:hover {
+  background-color: #005a9e;
+}
+
+/* Subtask List */
+.subtasks ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 1.5rem;
 }
 
-.fedex-status-box ul li {
-  padding: 5px 0;
-}
-
-#fedexheader {
-  color: #4d148c;
-  text-align: center;
-}
-
-#fedexlinkbutton {
-  background-color: #4d148c;
-  color: white;
+.subtasks ul li {
+  padding: 10px 12px;
   border-radius: 8px;
-  padding: 10px 20px;
-  cursor: pointer;
-  border: none;
-  margin-top: 20px;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
+  margin-bottom: 6px;
+  background-color: #f3f2f1;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
 }
 
-/* Media Queries for responsiveness */
+.subtasks ul li:hover {
+  background-color: #e5e5e5;
+  cursor: pointer;
+}
+
+/* Transportfarben */
+.subtasks ul li.tnt { background-color: #e94a0a; color: white; }
+.subtasks ul li.fedex { background-color: purple; color: white; }
+.subtasks ul li.ups { background-color: brown; color: white; }
+.subtasks ul li.dsv { background-color: darkblue; color: white; }
+
+/* Modal */
+.modal-header {
+  background-color: #0078D4;
+  color: white;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.modal-content {
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.fluent-label {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 0.3rem;
+  display: block;
+  color: #333;
+}
+
+/* Inputs */
+.fluent-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #c8c6c4;
+  background-color: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fluent-input:focus {
+  outline: none;
+  border-color: #0078D4;
+  box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .box-detail-container {
-    top: 100%; /* Startposition außerhalb des Bildschirms */
-    right: 0;
     width: 100%;
-    height: 100%; /* Passt die Höhe automatisch an */
-    transition: top 0.3s ease; /* Transition für den Sliden-Effekt */
+    top: 100%;
+    right: 0;
+    transition: top 0.3s ease;
   }
 
   .box-detail-container.open {
-    top: 0; /* Endposition im sichtbaren Bereich */
+    top: 0;
   }
-
-  .no-scroll {
-    overflow: hidden; /* Verhindert das Scrollen der Hauptseite */
-  }
-}
-
-.modal-header {
-  background-color: black;
-  color: white;
-}
-
-.btn-close {
-  background-color: white;
-}
-
-.fedex-status-container .card {
-  margin-bottom: 20px;
-  width: 100%;
-  max-width: 500px;
-}
-
-.fedex-status-container .card-body {
-  padding: 20px;
-}
-
-.fedex-status-container .card-title {
-  font-size: 16px;
-  color: #4d148c;
-  margin-bottom: 10px;
-  border-bottom: 2px solid #4d148c;
-  padding-bottom: 5px;
-  text-align: center;
-}
-
-.fedex-status-container .card-text,
-.fedex-status-container .list-group {
-  font-size: 14px;
-  color: #333;
-  text-align: center;
-}
-
-.fedex-status-container .list-group-item {
-  padding: 5px 0;
 }
