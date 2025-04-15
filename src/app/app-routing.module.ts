@@ -5,11 +5,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
 import { DownloadsComponent } from './downloads/downloads.component';
 import { SalesKanbanComponent } from './sales-kanban/sales-kanban.component';
+import {FluentDashboardComponent} from "./fluent-dashboard/fluent-dashboard.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: FluentDashboardComponent, canActivate: [AuthGuard] },
   { path: 'downloads', component: DownloadsComponent, canActivate: [AuthGuard] },
   { path: 'salespipe', component: SalesKanbanComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/dashboard' } // Fallback-Route für nicht existierende Seiten

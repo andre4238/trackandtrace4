@@ -1,0 +1,109 @@
+.sidebar {
+  width: 80px;
+  background-color: #EBEBE8;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+}
+
+/* Haupt-Button (Add) */
+.fluent-button {
+  width: 64px;
+  height: 48px;
+  border-radius: 7px;
+  background-color: #0078D4;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.2s, box-shadow 0.2s;
+  padding: 0;
+  text-align: center;
+  overflow: visible;
+}
+
+.fluent-button:hover {
+  background-color: #005A9E;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.fluent-button:active {
+  background-color: #004578;
+}
+
+.fluent-button img {
+  width: 16px;
+  height: 16px;
+}
+
+.button-label {
+  font-size: 0.6rem;
+  margin-top: 2px;
+}
+
+/* Sidebar-Navigation */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar-Links */
+.sidebar-link {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0;
+  font-size: 0.8rem;
+  transition: color 0.2s;
+  width: 100%;
+}
+
+.sidebar-link .icon {
+  font-size: 1.2rem;
+  color: #999;
+  transition: color 0.2s;
+}
+
+.sidebar-link .label {
+  font-size: 0.7rem;
+  margin-top: 4px;
+}
+
+.sidebar-link .sidebar-indicator {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 4px;
+  background-color: transparent;
+  border-radius: 0 4px 4px 0;
+  transition: background-color 0.3s;
+}
+
+/* Aktiver Zustand */
+.sidebar-link.active {
+  color: #0078D4;
+}
+
+.sidebar-link.active .icon {
+  color: #0078D4;
+}
+
+.sidebar-link.active .sidebar-indicator {
+  background-color: #0078D4;
+}

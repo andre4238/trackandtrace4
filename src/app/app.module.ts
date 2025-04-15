@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +27,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SafePipe } from '../services/safe.pipe';
 import { ServiceModalComponent } from './service-modal/service-modal.component';
-import { SalesKanbanComponent } from './sales-kanban/sales-kanban.component'; // Importieren Sie die Safe-Pipe
+import { SalesKanbanComponent } from './sales-kanban/sales-kanban.component';
+import { FluentDashboardComponent } from './fluent-dashboard/fluent-dashboard.component';
+import { FluentSidebarComponent } from './fluent-sidebar/fluent-sidebar.component';
+import { FluentHeaderComponent } from './fluent-header/fluent-header.component'; // Importieren Sie die Safe-Pipe
+
 
 
 
@@ -47,7 +51,10 @@ import { SalesKanbanComponent } from './sales-kanban/sales-kanban.component'; //
     SidebarComponent,
     SafePipe,
     ServiceModalComponent,
-    SalesKanbanComponent
+    SalesKanbanComponent,
+    FluentDashboardComponent,
+    FluentSidebarComponent,
+    FluentHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +76,7 @@ import { SalesKanbanComponent } from './sales-kanban/sales-kanban.component'; //
     provideFirestore(() => getFirestore()),
     AuthGuard
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] // <-- Das ist wichtig!
 })
 export class AppModule { }
