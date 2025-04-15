@@ -1,0 +1,97 @@
+.fluent-login-wrapper {
+  min-height: 100vh;
+  background-color: #f3f2f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.fluent-login-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: #323130;
+}
+
+.fluent-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #c8c6c4;
+  background-color: #ffffff;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fluent-input:focus {
+  outline: none;
+  border-color: #0078d4;
+  box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+}
+
+.fluent-button {
+  width: 100%;
+  background-color: #0078d4;
+  color: white;
+  padding: 10px 0;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  margin-top: 1rem;
+}
+
+.fluent-button:hover:not(:disabled) {
+  background-color: #005a9e;
+}
+
+.fluent-button:disabled {
+  background-color: #c8c6c4;
+  cursor: not-allowed;
+}
+
+.input-error {
+  color: #a80000;
+  font-size: 0.75rem;
+  margin-top: 0.3rem;
+}
+
+.fluent-error-box {
+  background-color: #fde7e9;
+  color: #a4262c;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.fluent-login-links {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.fluent-login-links a {
+  color: #0078d4;
+  text-decoration: none;
+  transition: text-decoration 0.2s ease;
+}
+
+.fluent-login-links a:hover {
+  text-decoration: underline;
+}

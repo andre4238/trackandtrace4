@@ -1,50 +1,43 @@
-<app-loginheader></app-loginheader>
 
-<div class="login-container container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-      <div class="card shadow-lg">
-        <div class="card-body">
-          <h2 class="card-title text-center mb-4">🔑 Login</h2>
 
-          <!-- Fehlermeldung global anzeigen -->
-          <div *ngIf="errorMessage" class="alert alert-danger text-center">
-            {{ errorMessage }}
-          </div>
+<div class="fluent-login-wrapper">
+  <div class="fluent-login-card">
+    <h2 class="title">Login to Track & Trace</h2>
 
-          <form [formGroup]="loginForm" (ngSubmit)="loginWithEmail()">
-            <!-- E-Mail-Eingabefeld -->
-            <div class="form-group">
-              <label for="email">E-Mail:</label>
-              <input type="email" id="email" formControlName="email" class="form-control" placeholder="E-Mail eingeben">
-              <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="text-danger">
-                <small *ngIf="email?.errors?.['required']">E-Mail erforderlich.</small>
-                <small *ngIf="email?.errors?.['email']">Ungültige E-Mail-Adresse.</small>
-              </div>
-            </div>
 
-            <!-- Passwort-Eingabefeld -->
-            <div class="form-group mt-3">
-              <label for="password">Passwort:</label>
-              <input type="password" id="password" formControlName="password" class="form-control" placeholder="Passwort eingeben">
-              <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="text-danger">
-                <small *ngIf="password?.errors?.['required']">Passwort erforderlich.</small>
-              </div>
-            </div>
+    <!-- Fehlermeldung global anzeigen -->
+    <div *ngIf="errorMessage" class="fluent-error-box">
+      {{ errorMessage }}
+    </div>
 
-            <!-- Login-Button -->
-            <button type="submit" class="btn btn-primary btn-block mt-4" [disabled]="loginForm.invalid">
-              Login
-            </button>
-          </form>
-
-          <!-- Registrierung und Passwort vergessen -->
-          <div class="text-center mt-3">
-            <a href="#" class="text-primary">Passwort vergessen?</a> |
-            <a href="#" class="text-primary">Registrieren</a>
-          </div>
+    <form [formGroup]="loginForm" (ngSubmit)="loginWithEmail()">
+      <!-- E-Mail -->
+      <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input type="email" id="email" formControlName="email" class="fluent-input" placeholder="E-Mail eingeben" />
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="input-error">
+          <small *ngIf="email?.errors?.['required']">E-Mail erforderlich.</small>
+          <small *ngIf="email?.errors?.['email']">Ungültige E-Mail-Adresse.</small>
         </div>
       </div>
+
+      <!-- Passwort -->
+      <div class="form-group">
+        <label for="password">Passwort</label>
+        <input type="password" id="password" formControlName="password" class="fluent-input" placeholder="Passwort eingeben" />
+        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="input-error">
+          <small *ngIf="password?.errors?.['required']">Passwort erforderlich.</small>
+        </div>
+      </div>
+
+      <!-- Login Button -->
+      <button type="submit" class="fluent-button" [disabled]="loginForm.invalid">Login</button>
+    </form>
+
+    <!-- Links -->
+    <div class="fluent-login-links">
+      <a href="#">Passwort vergessen?</a> |
+      <a href="#">Registrieren</a>
     </div>
   </div>
 </div>
