@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Header oben */
+app-fluent-header {
+  flex: 0 0 64px;
+}
+
+/* Hauptbereich: Sidebar + Inhalt */
+.main-layout {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 64px);
+}
+
+/* Sidebar links */
+app-fluent-sidebar {
+  flex: 0 0 80px;
+  height: 100%;
+}
+
+/* Content zentriert anzeigen */
+.content-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
