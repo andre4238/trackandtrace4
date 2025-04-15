@@ -30,7 +30,8 @@ import { ServiceModalComponent } from './service-modal/service-modal.component';
 import { SalesKanbanComponent } from './sales-kanban/sales-kanban.component';
 import { FluentDashboardComponent } from './fluent-dashboard/fluent-dashboard.component';
 import { FluentSidebarComponent } from './fluent-sidebar/fluent-sidebar.component';
-import { FluentHeaderComponent } from './fluent-header/fluent-header.component'; // Importieren Sie die Safe-Pipe
+import { FluentHeaderComponent } from './fluent-header/fluent-header.component';
+import { SupportComponent } from './support/support.component'; // Importieren Sie die Safe-Pipe
 
 
 
@@ -54,7 +55,8 @@ import { FluentHeaderComponent } from './fluent-header/fluent-header.component';
     SalesKanbanComponent,
     FluentDashboardComponent,
     FluentSidebarComponent,
-    FluentHeaderComponent
+    FluentHeaderComponent,
+    SupportComponent
   ],
   imports: [
     BrowserModule,

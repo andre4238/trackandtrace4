@@ -26,19 +26,19 @@
 
     <button
       class="sidebar-link"
-      [class.active]="activeButton === 'summary'"
-      (click)="setActive('summary')"
+      [class.active]="activeButton === 'Support'"
+      (click)="setActive('Support')"
     >
       <span class="sidebar-indicator"></span>
       <span class="icon">
         <img
-          [src]="activeButton === 'summary'
-            ? 'assets/summary_klicked.svg'
-            : 'assets/summary_unklicked.svg'"
-          alt="Summary Icon"
+          [src]="activeButton === 'Support'
+            ? 'assets/headphones-2.svg'
+            : 'assets/headphones.svg'"
+          alt="Support Icon"
         />
       </span>
-      <span class="label">Summary</span>
+      <span class="label">Support</span>
     </button>
 
     <button

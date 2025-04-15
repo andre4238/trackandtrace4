@@ -8,7 +8,7 @@
     <!-- Dynamisch geladene Komponente -->
     <ng-container [ngSwitch]="activeButton">
       <app-box-new-project *ngSwitchCase="'dashboard'"></app-box-new-project>
-      <app-summary *ngSwitchCase="'summary'"></app-summary>
+      <app-support *ngSwitchCase="'Support'"></app-support>
       <app-customer-box *ngSwitchCase="'kunden'"></app-customer-box>
       <app-settings-box *ngSwitchCase="'settings'"></app-settings-box>
 
