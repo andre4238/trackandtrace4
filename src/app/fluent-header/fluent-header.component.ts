@@ -24,4 +24,21 @@ export class FluentHeaderComponent {
         console.error('HeaderComponent: Logout error:', error);
       });
   }
+
+  showNotifications = false;
+
+  toggleNotifications() {
+    this.showNotifications = !this.showNotifications;
+  }
+
+  notifications = [
+    'Neues Paket eingetroffen',
+    'Update zur Sendung 123456',
+    'Supportanfrage beantwortet'
+  ];
+
+  clearNotifications() {
+    this.notifications = [];
+  }
+
 }

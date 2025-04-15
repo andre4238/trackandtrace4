@@ -4,15 +4,18 @@
   </div>
 
   <div class="header-right">
-    <button class="header-button" aria-label="Benachrichtigungen">
-      <img src="assets/bell.svg" alt="Benachrichtigung" />
-    </button>
+    <div class="notification-wrapper">
+      <button class="header-button" aria-label="Benachrichtigungen" (click)="toggleNotifications()">
+        <img src="assets/bell.svg" alt="Benachrichtigung" />
+      </button>
+
+      <app-notification *ngIf="showNotifications" [notifications]="notifications" (clear)="clearNotifications()"></app-notification>
+    </div>
 
     <button class="header-button" aria-label="Einstellungen">
       <img src="assets/settings_unklicked.svg" alt="Einstellungen" />
     </button>
 
-    <!-- ✅ Logout-Button mit click-handler -->
     <button class="header-button" aria-label="Logout" (click)="logout()">
       <img src="assets/exit.svg" alt="Abmelden" />
     </button>
