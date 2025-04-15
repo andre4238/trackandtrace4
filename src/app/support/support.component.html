@@ -1,0 +1,41 @@
+<div class="support-form-wrapper">
+  <h2 class="support-title">Supportquotation</h2>
+
+  <form (ngSubmit)="submitSupportForm()" #supportForm="ngForm">
+    <!-- Name -->
+    <div class="form-group">
+      <label class="fluent-label" for="name">Name:</label>
+      <input type="text" id="name" name="name" class="fluent-input" ngModel required />
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label class="fluent-label" for="email">E-Mail:</label>
+      <input type="email" id="email" name="email" class="fluent-input" ngModel required />
+    </div>
+
+    <!-- Telefonnummer -->
+    <div class="form-group">
+      <label class="fluent-label" for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" class="fluent-input" ngModel />
+    </div>
+
+    <!-- Seriennummer -->
+    <div class="form-group">
+      <label class="fluent-label" for="serial">Serialnumber:</label>
+      <input type="text" id="serial" name="serial" class="fluent-input" ngModel required />
+    </div>
+
+    <!-- Problem Beschreibung -->
+    <div class="form-group">
+      <label class="fluent-label" for="message">Description:</label>
+      <textarea id="message" name="message" class="fluent-input" rows="5" ngModel required></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="fluent-button" [disabled]="!supportForm.valid">
+      Send
+    </button>
+  </form>
+</div>
+
