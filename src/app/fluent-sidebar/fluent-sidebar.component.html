@@ -60,6 +60,40 @@
 
     <button
       class="sidebar-link"
+      [class.active]="activeButton === 'Pricelist'"
+      (click)="setActive('Pricelist')"
+    >
+      <span class="sidebar-indicator"></span>
+      <span class="icon">
+        <img
+          [src]="activeButton === 'Pricelist'
+            ? 'assets/file-2.svg'
+            : 'assets/file.svg'"
+          alt="Return Icon"
+        />
+      </span>
+      <span class="label">Pricelist</span>
+    </button>
+
+    <button
+      class="sidebar-link"
+      [class.active]="activeButton === 'return'"
+      (click)="setActive('return')"
+    >
+      <span class="sidebar-indicator"></span>
+      <span class="icon">
+        <img
+          [src]="activeButton === 'return'
+            ? 'assets/return-box-3.svg'
+            : 'assets/return-box.svg'"
+          alt="Return Icon"
+        />
+      </span>
+      <span class="label">Return</span>
+    </button>
+
+    <button
+      class="sidebar-link"
       [class.active]="activeButton === 'settings'"
       (click)="setActive('settings')"
     >

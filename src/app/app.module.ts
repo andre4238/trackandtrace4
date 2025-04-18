@@ -32,7 +32,8 @@ import { FluentDashboardComponent } from './fluent-dashboard/fluent-dashboard.co
 import { FluentSidebarComponent } from './fluent-sidebar/fluent-sidebar.component';
 import { FluentHeaderComponent } from './fluent-header/fluent-header.component';
 import { SupportComponent } from './support/support.component';
-import { NotificationComponent } from './notification/notification.component'; // Importieren Sie die Safe-Pipe
+import { NotificationComponent } from './notification/notification.component';
+import { ReturnComponent } from './return/return.component'; // Importieren Sie die Safe-Pipe
 
 
 
@@ -58,7 +59,8 @@ import { NotificationComponent } from './notification/notification.component'; /
     FluentSidebarComponent,
     FluentHeaderComponent,
     SupportComponent,
-    NotificationComponent
+    NotificationComponent,
+    ReturnComponent
   ],
   imports: [
     BrowserModule,
